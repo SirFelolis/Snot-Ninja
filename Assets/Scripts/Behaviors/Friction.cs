@@ -15,7 +15,7 @@ public class Friction : AbstractBehavior
         var jump = _inputState.GetButtonValue(inputButtons[2]);
         var down = _inputState.GetButtonValue(inputButtons[3]);
 
-        if(!left && !right && !jump && _collisionState.standing)
+        if ((!left && !right && !jump && _collisionState.standing) || (!left && !right && !jump && down && _collisionState.standing))
         {
             _rb2d.drag = 10000;
         }
