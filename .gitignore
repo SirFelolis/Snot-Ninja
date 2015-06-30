@@ -48,3 +48,5 @@ Temporary Items
 Temp/UnityLockfile
 Library/assetDatabase3
 Library/assetDatabase3
+*.info
+*.info
