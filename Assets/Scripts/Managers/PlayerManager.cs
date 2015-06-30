@@ -20,27 +20,27 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if (_collisionState.standing)
+        if (_collisionState.standing) // Idle animation
         {
             ChangeAnimationState(0);
         }
 
-        if (_inputState.absVelX > 0.2f)
+        if (_inputState.absVelX > 0.2f) // Running animation
         {
             ChangeAnimationState(1);
         }
 
-        if (_inputState.absVelY > 0.5f)
+        if (_inputState.absVelY > 0.5f) // Jumping animation
         {
             ChangeAnimationState(2);
         }
 
-        if (_duckBehavior.ducking)
+        if (_duckBehavior.ducking) // Ducking animation
         {
             ChangeAnimationState(3);
         }
 
-        if (!_collisionState.standing && _collisionState.onWall)
+        if (!_collisionState.standing && _collisionState.onWall) // Wall slide animation
         {
             ChangeAnimationState(4);
         }
