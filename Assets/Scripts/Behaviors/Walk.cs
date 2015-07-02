@@ -8,6 +8,8 @@ public class Walk : AbstractBehavior
     public bool running;
     public bool moving;
 
+    private float currentSpeed = 0;
+
 	void Update ()
     {
         running = false;
@@ -17,19 +19,20 @@ public class Walk : AbstractBehavior
         var left = _inputState.GetButtonValue(inputButtons[1]);
         var run = _inputState.GetButtonValue(inputButtons[2]);
 
+        Debug.Log(speed * Input.GetAxisRaw("Horizontal"));
         if (right || left)
         {
-            var tmpSpeed = speed;
+            currentSpeed = speed;
 
             moving = true;
 
             if (run && runMultiplier > 0)
             {
-                tmpSpeed *= runMultiplier;
+                currentSpeed *= runMultiplier;
                 running = true;
             }
 
-            var velX = tmpSpeed * (float)_inputState.direction;
+            var velX = currentSpeed * (float)_inputState.direction;
 
             _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
         }
