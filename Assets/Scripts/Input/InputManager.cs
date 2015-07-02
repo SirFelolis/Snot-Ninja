@@ -5,7 +5,8 @@ public enum Buttons
 {
     Right,
     Left,
-    Triggers,
+    LeftTrigger,
+    RightTrigger,
     Jump,
     Down
 }
