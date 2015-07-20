@@ -3,9 +3,9 @@ using System.Collections;
 
 public class Jump : AbstractBehavior
 {
-    public float jumpSpeed = 100.0f;
-    public float jumpBoostMultiplier = 2;
-    public float WallJumpBoostMultiplier = 5;
+    public float jumpSpeed = 160.0f;
+    public float jumpBoostMultiplier = 1.2f;
+    public float WallJumpBoostMultiplier = 2;
     public float resetDelay = .2f;
     public bool jumpingOffWall;
     public Vector2 wallJumpSpeed = new Vector2(50, 150);

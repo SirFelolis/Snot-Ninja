@@ -4,7 +4,7 @@ using System.Collections;
 public class Walk : AbstractBehavior
 {
     public float speed = 50.0f;
-    public float runMultiplier = 2.0f;
+    public float runMultiplier = 1.0f;
     public bool running;
     public bool moving;
 
@@ -19,7 +19,6 @@ public class Walk : AbstractBehavior
         var left = _inputState.GetButtonValue(inputButtons[1]);
         var run = _inputState.GetButtonValue(inputButtons[2]);
 
-        Debug.Log(speed * Input.GetAxisRaw("Horizontal"));
         if (right || left)
         {
             currentSpeed = speed;
@@ -33,6 +32,7 @@ public class Walk : AbstractBehavior
             }
 
             var velX = currentSpeed * (float)_inputState.direction;
+            Debug.Log(velX);
 
             _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
         }
