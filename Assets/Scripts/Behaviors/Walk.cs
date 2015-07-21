@@ -8,8 +8,6 @@ public class Walk : AbstractBehavior
     public bool running;
     public bool moving;
 
-    private float currentSpeed = 0;
-
 	void Update ()
     {
         running = false;
@@ -21,7 +19,7 @@ public class Walk : AbstractBehavior
 
         if (right || left)
         {
-            currentSpeed = speed;
+            var currentSpeed = speed;
 
             moving = true;
 
@@ -32,10 +30,9 @@ public class Walk : AbstractBehavior
             }
 
             var velX = currentSpeed * (float)_inputState.direction;
-            Debug.Log(velX);
+//            Debug.Log(velX);
 
             _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
         }
-	
 	}
 }
