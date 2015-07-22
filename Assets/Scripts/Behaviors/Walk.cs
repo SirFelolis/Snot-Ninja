@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class Walk : AbstractBehavior
 {
@@ -29,8 +28,7 @@ public class Walk : AbstractBehavior
                 running = true;
             }
 
-            var velX = currentSpeed * (float)_inputState.direction;
-//            Debug.Log(velX);
+            var velX = currentSpeed * Input.GetAxis("Horizontal");
 
             _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
         }
