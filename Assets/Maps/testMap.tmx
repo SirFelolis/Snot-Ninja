@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="66" height="60" tilewidth="16" tileheight="16" nextobjectid="1">
+ <tileset firstgid="1" name="tiles1" tilewidth="16" tileheight="16">
+  <image source="../Sprites/New/tiles1.png" width="80" height="96"/>
+  <terraintypes>
+   <terrain name="Ground" tile="-1"/>
+  </terraintypes>
+  <tile id="2" terrain=",,,0"/>
+  <tile id="3" terrain=",,0,0"/>
+  <tile id="4" terrain=",,0,"/>
+  <tile id="7" terrain=",0,,0"/>
+  <tile id="8" terrain="0,0,0,0"/>
+  <tile id="9" terrain="0,,0,"/>
+  <tile id="10" terrain=",,,0"/>
+  <tile id="11" terrain=",,0,0"/>
+  <tile id="12" terrain=",0,0,0"/>
+  <tile id="13" terrain="0,0,0,0"/>
+  <tile id="14" terrain="0,,0,"/>
+  <tile id="15" terrain=",0,,0"/>
+  <tile id="17" terrain="0,0,0,"/>
+  <tile id="18" terrain="0,0,,"/>
+  <tile id="19" terrain="0,,,"/>
+  <tile id="20" terrain=",0,,0"/>
+  <tile id="22" terrain="0,,0,"/>
+  <tile id="25" terrain=",0,,"/>
+  <tile id="26" terrain="0,0,,"/>
+  <tile id="27" terrain="0,,,"/>
+ </tileset>
+ <tileset firstgid="31" name="RED" tilewidth="16" tileheight="16">
+  <image source="../Sprites/RED.png" width="16" height="16"/>
+  <tile id="0">
+   <objectgroup draworder="index">
+    <object id="0" x="0" y="0" width="16" height="16"/>
+   </objectgroup>
+  </tile>
+ </tileset>
+ <tileset firstgid="32" name="Kill trigger" tilewidth="16" tileheight="16">
+  <image source="../Sprites/Kill trigger.png" width="16" height="16"/>
+ </tileset>
+ <layer name="Triggers" width="66" height="60">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T20LL6AAAAAAAAAAAAAAAAAAAAB4GD3gAAE=
+  </data>
+ </layer>
+ <layer name="Tiles" width="66" height="60">
+  <data encoding="base64" compression="zlib">
+   eJzt1NFpwzAUQNEH7ofz0ULJQh0lo2i0jJJRqnAdKMFSVSHT1r4XHhjkxNZBeI6I08rMESl2Vt5Taa/Xylr6lZfdMB1IB9KBdCAdSAfSgXQgHai2Vx100EEHHXR4pAPpQDrQkRymPC+FeY1jONwN7nt9L8zaPvfm8J3BERxaDGome3DoMdibQ6/B89Qc8v+n0ne3NlPBr/Yd753l+5+2dOid0jka/Zwvs4nDW8Ocnq5bHdZ+0/q80v2jHPJ5/Tjn6xGTz+ml5pDXb6OetUxapuW+4no2uK69c29z1M/Df/j2jkgH0oF0IB1IB9KBdCAdSAfSgXQgHUgH0oF0IB1IB9KBdCAdSAfSgXQgHUgH0oF0IB1oirjkuf107S/0CbZqZNE=
+  </data>
+ </layer>
+ <layer name="Collisions" width="66" height="60" opacity="0.2">
+  <data encoding="base64" compression="zlib">
+   eJzt1FEOgyAUBVF2wtZZatPMdxWvICXOSfrV8PoyWkqRJEmSxqultNU7jFazM230HqvZAXaAHWAH2AF2gB1gB7ypQw0+J/ParF1nCZ/32fctGLtM0qDn3E4d0gY9Z3fpcKdBz/kdOtxt0DPj2yG5e3/NTWel9/yV351h1tzEyl3+pcPqPZ78Xzz9rl9x1OFN7AA7wA6wA+wAO8AOsAPsADvADrAD7AA7wA6wA+wAO8AOsAPsADvADrAD7AA7wA6wA3bt8AGD3CFG
+  </data>
+ </layer>
+</map>
