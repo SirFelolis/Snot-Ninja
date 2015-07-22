@@ -1,7 +1,4 @@
-﻿using UnityEngine;
-using System.Collections;
-
-public class StickToWall : AbstractBehavior
+﻿public class StickToWall : AbstractBehavior
 {
     public bool onWallDetected;
 
@@ -40,8 +37,8 @@ public class StickToWall : AbstractBehavior
     {
         if (!_collisionState.standing &&_rb2d.velocity.y > 0)
         {
-            _rb2d.gravityScale = 20;
-            _rb2d.drag = 0;
+            _rb2d.gravityScale = 0;
+            _rb2d.drag = 100;
         }
     }
 

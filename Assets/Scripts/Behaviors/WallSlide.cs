@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class WallSlide : StickToWall
 {
@@ -9,5 +8,27 @@ public class WallSlide : StickToWall
     protected override void Update()
     {
         base.Update();
+
+        if (onWallDetected && !_collisionState.standing)
+        {
+            var velY = slideVelocity;
+
+            if (_inputState.GetButtonValue(inputButtons[0]))
+            {
+                velY *= slideMultiplier;
+            }
+
+            _rb2d.velocity = new Vector2(_rb2d.velocity.x, velY);
+        }
+    }
+
+    protected override void OnStick()
+    {
+        _rb2d.velocity = Vector2.zero;
+    }
+
+    protected override void OffWall()
+    {
+        // Does nothing
     }
 }
