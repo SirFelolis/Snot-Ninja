@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public enum Buttons
 {
     Right,
     Left,
-    LeftTrigger,
-    RightTrigger,
     Jump,
     Down
 }

@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PlayerManager : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class PlayerManager : MonoBehaviour
     private Walk _walkBehavior;
     private Animator _animator;
     private CollisionState _collisionState;
-    private Duck _duckBehavior;
+    private Slide _slideBehavior;
 
     void Awake ()
     {
@@ -15,7 +14,7 @@ public class PlayerManager : MonoBehaviour
         _walkBehavior = GetComponent<Walk>();
         _animator = GetComponent<Animator>();
         _collisionState = GetComponent<CollisionState>();
-        _duckBehavior = GetComponent<Duck>();
+        _slideBehavior = GetComponent<Slide>();
 	}
 
     void Update()
@@ -35,7 +34,7 @@ public class PlayerManager : MonoBehaviour
             ChangeAnimationState(2);
         }
 
-        if (_duckBehavior.ducking) // Ducking animation
+        if (_slideBehavior.sliding) // Sliding animation
         {
             ChangeAnimationState(3);
         }
@@ -44,6 +43,8 @@ public class PlayerManager : MonoBehaviour
         {
             ChangeAnimationState(4);
         }
+
+        
 
         _animator.speed = _walkBehavior.running ? _walkBehavior.runMultiplier : 1;
     }

@@ -38,10 +38,11 @@ public class Jump : AbstractBehavior
 
         if (_collisionState.standing)
         {
-            jumpsRemaining = jumpCount - 1;
+            jumpsRemaining = jumpCount;
             if (canJump && holdTime < 0.1f)
             {
                 OnJump();
+                jumpsRemaining--;
             }
         }
         else
