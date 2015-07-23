@@ -1,34 +1,52 @@
 ﻿using UnityEngine;
 
-public class WallSlide : StickToWall
+public class WallSlide : AbstractBehavior
 {
-    public float slideVelocity = -5.0f;
-    public float slideMultiplier = 5.0f;
+    public bool onWallDetected;
 
-    protected override void Update()
+    protected float _defaultGravityScale;
+    protected float _defaultDrag;
+
+    void Start()
     {
-        base.Update();
+        _defaultGravityScale = _rb2d.gravityScale;
+        _defaultDrag = _rb2d.drag;
+    }
 
-        if (onWallDetected && !_collisionState.standing)
+    protected virtual void Update()
+    {
+        if (_collisionState.onWall)
         {
-            var velY = slideVelocity;
-
-            if (_inputState.GetButtonValue(inputButtons[0]))
+            if (!onWallDetected)
             {
-                velY *= slideMultiplier;
+                OnStick();
+                ToggleScripts(false);
+                onWallDetected = true;
             }
-
-            _rb2d.velocity = new Vector2(_rb2d.velocity.x, velY);
+        }
+        else
+        {
+            if (onWallDetected)
+            {
+                OffWall();
+                ToggleScripts(true);
+                onWallDetected = false;
+            }
         }
     }
 
-    protected override void OnStick()
+    protected virtual void OnStick()
     {
-        _rb2d.velocity = Vector2.zero;
+        _rb2d.gravityScale = 20.0f;
+        Debug.Log("Hey");
     }
 
-    protected override void OffWall()
+    protected virtual void OffWall()
     {
-        // Does nothing
+        if (_rb2d.gravityScale != _defaultGravityScale)
+        {
+            _rb2d.gravityScale = _defaultGravityScale;
+            Debug.Log("Ho");
+        }
     }
 }
