@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="66" height="60" tilewidth="16" tileheight="16" nextobjectid="1">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="86" height="60" tilewidth="16" tileheight="16" nextobjectid="1">
  <tileset firstgid="1" name="tiles1" tilewidth="16" tileheight="16">
   <image source="../Sprites/New/tiles1.png" width="80" height="96"/>
   <terraintypes>
@@ -34,22 +34,19 @@
    </objectgroup>
   </tile>
  </tileset>
- <tileset firstgid="32" name="Kill trigger" tilewidth="16" tileheight="16">
-  <image source="../Sprites/Kill trigger.png" width="16" height="16"/>
- </tileset>
- <layer name="Triggers" width="66" height="60">
+ <layer name="Triggers" width="86" height="60">
   <data encoding="base64" compression="zlib">
-   eJztwTEBAAAAwqD1T20LL6AAAAAAAAAAAAAAAAAAAAB4GD3gAAE=
+   eJztwQEBAAAAgiD/r25IQAEAAAAAAAAAAAAAAAAAAAAAAAAA7wZQoAAB
   </data>
  </layer>
- <layer name="Tiles" width="66" height="60">
+ <layer name="Tiles" width="86" height="60">
   <data encoding="base64" compression="zlib">
-   eJzt1NFpwzAUQNEH7ofz0ULJQh0lo2i0jJJRqnAdKMFSVSHT1r4XHhjkxNZBeI6I08rMESl2Vt5Taa/Xylr6lZfdMB1IB9KBdCAdSAfSgXQgHai2Vx100EEHHXR4pAPpQDrQkRymPC+FeY1jONwN7nt9L8zaPvfm8J3BERxaDGome3DoMdibQ6/B89Qc8v+n0ne3NlPBr/Yd753l+5+2dOid0jka/Zwvs4nDW8Ocnq5bHdZ+0/q80v2jHPJ5/Tjn6xGTz+ml5pDXb6OetUxapuW+4no2uK69c29z1M/Df/j2jkgH0oF0IB1IB9KBdCAdSAfSgXQgHUgH0oF0IB1IB9KBdCAdSAfSgXQgHUgH0oF0IB1oirjkuf107S/0CbZqZNE=
+   eJzt2F1qwkAUQOGB9CF9qCDdUJfiUrI0l+JSOoG8tTOJM3Pyew5cEBVjPi8G7UMInxXThzCEkxXPqdbk2eA1BvxEV05XJl2ZdGXSlUlXJl2ZdGXSlUlXphYmuv5NVyZdmXRl0pVJVyZdmXRl0pVJ1/K6OB+J+Qq6ljSajnb3xNR4XNV1zlTX91timjNeet+VXEtMdc1Xalo6LVzj+x1S19XcdInPI3edLp3p+j4cybX1noPvZ3PX2zS5+24LJvVac665488dL/X8Pbi6r/vd1xpX9zU/OYMr7uvW3wNn3detr1vuq/u69r7WuLqv+Sm9brmv7mvKNf4e//mOt9ec+Hv9cfZ9/e/c6PrMscfHovur8Wc5TLPkedXHi7v6rDUqac71CP897jFdmXRl0pVJVyZdmXRl0pVJVyZdmXRl0pVJVyZdmXRl0pVJVyZdmXRl6kJ4xHm9+9iR+gV1RqYu
   </data>
  </layer>
- <layer name="Collisions" width="66" height="60" opacity="0.2">
+ <layer name="Collisions" width="86" height="60" opacity="0.2">
   <data encoding="base64" compression="zlib">
-   eJzt1FEOgyAUBVF2wtZZatPMdxWvICXOSfrV8PoyWkqRJEmSxqultNU7jFazM230HqvZAXaAHWAH2AF2gB1gB7ypQw0+J/ParF1nCZ/32fctGLtM0qDn3E4d0gY9Z3fpcKdBz/kdOtxt0DPj2yG5e3/NTWel9/yV351h1tzEyl3+pcPqPZ78Xzz9rl9x1OFN7AA7wA6wA+wAO8AOsAPsADvADrAD7AA7wA6wA+wAO8AOsAPsADvADrAD7AA7wA6wA3bt8AGD3CFG
+   eJzt2NEJwzAMBmFv4tU7avECDUl9ln/nPuhrkA6CSFuTJEmSJO2ot/apnmG2Xj1AsyvFrgy7MuzKsCvDrgy7MuzKsCsjtWu/+FVL7LpDtytpXROaDkldU5oOKV2Tmg4JXdOaDqPr1W29c3OfPmvn277Sr656zq4MuzLsypjVlbhzyfdvRteVu76l6+o939C1YsfTu1btd0LXittx+t2qsNMs/9pll13mmGXl/y7p7/Ydfm8x7MqwK8OuDLsy7MqwK8OuDLsy7MqwK8OuDLsy7MqwK8OuDLsy7MqwK+P0rl9xmCUm
   </data>
  </layer>
 </map>
