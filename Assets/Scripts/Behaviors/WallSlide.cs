@@ -4,8 +4,8 @@ public class WallSlide : AbstractBehavior
 {
     public bool onWallDetected;
 
-    protected float _defaultGravityScale;
-    protected float _defaultDrag;
+    private float _defaultGravityScale;
+    private float _defaultDrag;
 
     void Start()
     {
@@ -13,15 +13,16 @@ public class WallSlide : AbstractBehavior
         _defaultDrag = _rb2d.drag;
     }
 
-    protected virtual void Update()
+    void Update()
     {
+
         if (_collisionState.onWall)
         {
             if (!onWallDetected)
             {
+                onWallDetected = true;
                 OnStick();
                 ToggleScripts(false);
-                onWallDetected = true;
             }
         }
         else
@@ -35,18 +36,17 @@ public class WallSlide : AbstractBehavior
         }
     }
 
-    protected virtual void OnStick()
+    void OnStick()
     {
         _rb2d.gravityScale = 20.0f;
-        Debug.Log("Hey");
+        Debug.Log("Hey bub");
     }
 
-    protected virtual void OffWall()
+    void OffWall()
     {
         if (_rb2d.gravityScale != _defaultGravityScale)
         {
             _rb2d.gravityScale = _defaultGravityScale;
-            Debug.Log("Ho");
         }
     }
 }
