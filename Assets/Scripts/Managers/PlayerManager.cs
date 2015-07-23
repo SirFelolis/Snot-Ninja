@@ -3,19 +3,17 @@
 public class PlayerManager : MonoBehaviour
 {
     private InputState _inputState;
-    private Walk _walkBehavior;
     private Animator _animator;
     private CollisionState _collisionState;
     private Slide _slideBehavior;
 
-    void Awake ()
+    void Awake()
     {
         _inputState = GetComponent<InputState>();
-        _walkBehavior = GetComponent<Walk>();
         _animator = GetComponent<Animator>();
         _collisionState = GetComponent<CollisionState>();
         _slideBehavior = GetComponent<Slide>();
-	}
+    }
 
     void Update()
     {
@@ -43,10 +41,6 @@ public class PlayerManager : MonoBehaviour
         {
             ChangeAnimationState(4);
         }
-
-        
-
-        _animator.speed = _walkBehavior.running ? _walkBehavior.runMultiplier : 1;
     }
 
     void ChangeAnimationState(int value)
