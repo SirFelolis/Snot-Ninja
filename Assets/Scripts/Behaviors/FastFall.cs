@@ -13,7 +13,9 @@
 
         var down = _inputState.GetButtonValue(inputButtons[0]);
 
-        _rb2d.gravityScale = defaultGravityScale;
+        if (_rb2d.gravityScale > defaultGravityScale)
+            _rb2d.gravityScale = defaultGravityScale;
+
         if (down && !_collisionState.standing && !_collisionState.onWall)
         {
             _rb2d.gravityScale *= gravityMultiplier;
