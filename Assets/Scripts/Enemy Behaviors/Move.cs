@@ -3,7 +3,8 @@ using System.Collections;
 
 public enum EnemyBehaviors
 {
-    Follow
+    Follow,
+    Patrol
 };
 
 public class Move : AbstractEnemyBehavior
@@ -12,6 +13,12 @@ public class Move : AbstractEnemyBehavior
     public float speed = 50.0f;
     public bool moving;
     public EnemyBehaviors behavior;
+    public LayerMask layerMask;
+
+    void Start()
+    {
+        directions = Random.Range(0, 9) >= 4 ? Directions.Left : Directions.Right;
+    }
 
     void Update()
     {
@@ -20,13 +27,33 @@ public class Move : AbstractEnemyBehavior
         switch(behavior)
         {
             case EnemyBehaviors.Follow:
-                var target = ((player.position - transform.position).normalized * speed);
-
-                _rb2d.velocity = new Vector2(target.x, _rb2d.velocity.y);
                 moving = true;
+                var target = ((player.position - transform.position).normalized);
+                _rb2d.velocity = new Vector2(Mathf.Sign(target.x) * speed, _rb2d.velocity.y);
+                break;
+            case EnemyBehaviors.Patrol:
+                moving = true;
+                RaycastHit2D hitFloor = Physics2D.Raycast(transform.position, new Vector2(32 * (float)directions, -16), 32, layerMask);
+                RaycastHit2D hitWall = Physics2D.Raycast(transform.position, new Vector2(16 * (float)directions, 0), 16, layerMask);
+                _rb2d.velocity = new Vector2((float)directions * speed, _rb2d.velocity.y);
+                if (hitFloor.collider == null)
+                    Turn();
+                if (hitWall.collider != null)
+                    Turn();
                 break;
         }
+    }
 
-        Debug.Log((player.position - transform.position).normalized * speed);
+    void Turn()
+    {
+        directions = directions == Directions.Right ? Directions.Left : Directions.Right;
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawRay(transform.position, new Vector2(32 * (float)directions, -32));
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(transform.position, new Vector2(16 * (float)directions, 0));
     }
 }
