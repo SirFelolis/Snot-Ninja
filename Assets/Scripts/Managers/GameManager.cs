@@ -8,6 +8,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Respawn();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+
         if (GameObject.Find(player.name) == null)
         {
             if (!playerDead)
