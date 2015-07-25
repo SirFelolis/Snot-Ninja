@@ -5,12 +5,10 @@ public class WallSlide : AbstractBehavior
     public bool onWallDetected;
 
     private float _defaultGravityScale;
-    private float _defaultDrag;
 
     void Start()
     {
         _defaultGravityScale = _rb2d.gravityScale;
-        _defaultDrag = _rb2d.drag;
     }
 
     void Update()
@@ -38,8 +36,7 @@ public class WallSlide : AbstractBehavior
 
     void OnStick()
     {
-        _rb2d.gravityScale = 20.0f;
-        Debug.Log("Hey bub");
+        _rb2d.gravityScale = 30.0f;
     }
 
     void OffWall()

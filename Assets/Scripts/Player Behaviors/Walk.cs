@@ -23,5 +23,5 @@ public class Walk : AbstractBehavior
 
             _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
         }
-	}
+    }
 }
