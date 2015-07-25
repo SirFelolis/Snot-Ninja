@@ -18,11 +18,6 @@ public class CollisionState : MonoBehaviour
     {
         _inputState = GetComponent<InputState>();
 	}
-	
-	void Update()
-    {
-	
-	}
 
     void FixedUpdate()
     {
