@@ -1,0 +1,5 @@
+# Ignore these folders
+metadata
+ShaderCache
+
+# Ignore these files
