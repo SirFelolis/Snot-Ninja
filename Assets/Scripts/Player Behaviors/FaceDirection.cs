@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Player face direction script
+*/
+
 public class FaceDirection : AbstractBehavior
 {
     void Update()

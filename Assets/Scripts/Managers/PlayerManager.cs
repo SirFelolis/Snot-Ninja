@@ -1,18 +1,21 @@
 ﻿using UnityEngine;
 
+/** Player manager script
+*/
+
 public class PlayerManager : MonoBehaviour
 {
     private InputState _inputState;
     private Animator _animator;
     private CollisionState _collisionState;
-    private Slide _slideBehavior;
+    private Attack _attackBehavior;
 
     void Awake()
     {
         _inputState = GetComponent<InputState>();
         _animator = GetComponent<Animator>();
         _collisionState = GetComponent<CollisionState>();
-        _slideBehavior = GetComponent<Slide>();
+        _attackBehavior = GetComponent<Attack>();
     }
 
     void Update()
@@ -32,7 +35,7 @@ public class PlayerManager : MonoBehaviour
             ChangeAnimationState(2);
         }
 
-        if (_slideBehavior.sliding) // Sliding animation
+        if (_attackBehavior.attacking) // Attacking animation
         {
             ChangeAnimationState(3);
         }

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Player abstract behavior script
+*/
+
 public abstract class AbstractBehavior : MonoBehaviour
 {
     public Buttons[] inputButtons;

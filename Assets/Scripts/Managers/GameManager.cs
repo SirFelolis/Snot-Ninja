@@ -1,10 +1,20 @@
 ﻿using UnityEngine;
 
+/** Game manager script
+*/
+
+
 public class GameManager : MonoBehaviour
 {
     public GameObject player; // This is the game manager of course we need to track the player DUUUUH
-    public Transform playerRespawn; // This is the game manager of course we need to track the player respawn position DUUUUH
     public bool playerDead;
+
+    private string _playerTag;
+
+    void Awake()
+    {
+        _playerTag = player.name;
+    }
 
     void Update()
     {
@@ -18,7 +28,7 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         }
 
-        if (GameObject.Find(player.name) == null)
+        if (GameObject.Find(_playerTag) == null)
         {
             if (!playerDead)
             {

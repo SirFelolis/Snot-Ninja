@@ -2,6 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/** Player input state script
+*/
+
 public class ButtonState
 {
     public bool value;

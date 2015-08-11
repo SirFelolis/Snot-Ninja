@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Player walk script
+*/
+
 public class Walk : AbstractBehavior
 {
     public float speed = 50.0f;

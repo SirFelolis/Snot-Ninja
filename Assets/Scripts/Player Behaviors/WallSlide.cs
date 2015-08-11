@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Player wall slide script
+*/
+
 public class WallSlide : AbstractBehavior
 {
     public bool onWallDetected;

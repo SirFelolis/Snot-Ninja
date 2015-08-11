@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** Camera movement behavior script
+*/
+
+
 public class FollowPrediction : MonoBehaviour
 {
     public GameObject target; // Target has to have a rigidbody for the script to work
@@ -23,13 +27,6 @@ public class FollowPrediction : MonoBehaviour
                 Mathf.Lerp(transform.position.x, target.transform.position.x + _Trb2d.velocity.x / 4.0f, smooth),
                 Mathf.Lerp(transform.position.y, target.transform.position.y, smooth),
                 transform.position.z);
-
-            var pos = transform.position;
-
-            pos.x = (int)pos.x;
-            pos.y = (int)pos.y;
-
-            transform.position = pos;
         }
     }
 }

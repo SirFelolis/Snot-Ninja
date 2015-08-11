@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** Player drag behavior script
+*/
+
 public class DragBehaviour : AbstractBehavior
 {
     public float dragInAir = 0.0f;

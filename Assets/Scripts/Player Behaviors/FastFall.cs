@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Player fast fall script
+*/
+
 public class FastFall : AbstractBehavior
 {
     public float pullSpeed = -300;

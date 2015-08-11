@@ -1,11 +1,16 @@
 ﻿using UnityEngine;
 
+/** Player input manager script
+*/
+
+
 public enum Buttons
 {
     Right,
     Left,
     Jump,
-    Down
+    Down,
+    Fire1
 }
 
 public enum Condition

@@ -1,53 +1,68 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum EnemyBehaviors
-{
-    Follow,
-    Patrol
-};
+/** Enemy move script
+*/
 
 public class Move : AbstractEnemyBehavior
 {
-    public float speed = 50.0f;
-    public float sightRadius;
+    public float speed = 50.0f; // For patrolling
+    public float speedMultiplier = 1.1f; // When running
     public bool moving;
-    public bool vision;
-    public EnemyBehaviors behavior;
-    public Transform player;
-    public LayerMask layerMask;
-    public LayerMask canSee;
+    public float acc = 1.0f;
+
+    private float defaultSpeed;
+
+    private float dir = 0.0f;
+    private float dirLast = 0.0f;
+
 
     void Start()
     {
+        defaultSpeed = speed;
+
         directions = Random.Range(0, 9) >= 4 ? Directions.Left : Directions.Right;
     }
 
     void Update()
     {
-
         moving = false;
+        if (speed < defaultSpeed)
+            speed += acc;
+        else if (speed > defaultSpeed && _enemyFSM.behavior != EnemyBehaviors.Follow)
+            speed = defaultSpeed;
 
-        vision = Physics2D.OverlapCircle(transform.position, sightRadius, canSee);
+        dir = (float)directions;
+        if (dir != dirLast)
+        {
+            speed = 0;
+            dirLast = (float)directions;
+        }
 
-        if (vision)
-            behavior = EnemyBehaviors.Follow;
-        else
-            behavior = EnemyBehaviors.Patrol;
+        Vector2 target = Vector2.zero;
 
-        switch (behavior)
+        if (_player.gameObject != null)
+        {
+            target = ((_player.transform.position - transform.position).normalized);
+        }
+
+
+        switch (_enemyFSM.behavior)
         {
             case EnemyBehaviors.Follow:
                 moving = true;
-                speed = 70.0f;
-                var target = ((player.position - transform.position).normalized);
-                _rb2d.velocity = new Vector2(Mathf.Sign(target.x) * speed, _rb2d.velocity.y);
+                if (speed < defaultSpeed * speedMultiplier)
+                    speed *= speedMultiplier;
+
+                directions = target.x < 0 ? Directions.Left : Directions.Right;
+                _rb2d.velocity = new Vector2(speed * (float)directions, _rb2d.velocity.y);
                 break;
             case EnemyBehaviors.Patrol:
                 moving = true;
-                speed = 50.0f;
-                _rb2d.velocity = new Vector2((float)directions * speed, _rb2d.velocity.y); //TODO: FIX THIS. COMPLETELY BROKEN. HELP
-                if (!_enemyCollisionState.onLeftEdge || !_enemyCollisionState.onRightEdge)
+                _rb2d.velocity = new Vector2((float)directions * speed, _rb2d.velocity.y);
+                RaycastHit2D hit1 = Physics2D.Raycast(transform.position, new Vector2(22.0f * (float)directions, -22.0f), 22.0f, _enemyCollisionState.collisionLayer);
+                RaycastHit2D hit2 = Physics2D.Raycast(transform.position, new Vector2(10.0f * (float)directions, 0.0f), 10.0f, _enemyCollisionState.collisionLayer);
+                if (hit1.collider == null || hit2.collider != null)
                 {
                     Turn();
                 }
@@ -62,13 +77,11 @@ public class Move : AbstractEnemyBehavior
 
     void OnDrawGizmos()
     {
-        if (vision) Gizmos.color = Color.red;
-        else
-            Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, sightRadius);
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawRay(transform.position, new Vector2(32 * (float)directions, -32));
-        Gizmos.DrawRay(transform.position, new Vector2(16 * (float)directions, 0));
+/*        if(_enemySightSate.behavior == EnemyBehaviors.Patrol)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawRay(transform.position, new Vector2(22 * (float)directions, -22)); // For some reason generates a null refrence exception
+            Gizmos.DrawRay(transform.position, new Vector2(10 * (float)directions, 0.0f));
+        }*/
     }
 }

@@ -1,11 +1,14 @@
 ﻿using UnityEngine;
 
+/** Player jump script
+ * Dear lord save me from these comments
+ * I'll get rid of them some day
+ * Some day...
+*/
+
+
 public class Jump : AbstractBehavior
 {
-    // Dear lord save me from these comments
-    // I'll get rid of them some day
-    // Some day...
-
     public float jumpSpeed = 160.0f;
     public float jumpDelay = .1f;
     public int jumpCount = 2;

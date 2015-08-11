@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Trigger behavior script
+*/
+
 public class TriggerBehaviour : MonoBehaviour
 {
     public enum TriggerType

@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Camera movement behavior script
+*/
+
 public class PlayerCenter : MonoBehaviour
 {
     public Transform player;

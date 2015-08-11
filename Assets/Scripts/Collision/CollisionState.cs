@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** Player collision state script
+*/
+
 public class CollisionState : MonoBehaviour
 {
     public LayerMask collisionLayer;

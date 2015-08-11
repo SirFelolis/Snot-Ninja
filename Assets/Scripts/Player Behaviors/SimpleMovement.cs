@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** Player simple movement script
+ * Will not be used
+ * not even sure why it's here.
+*/
+
 public class SimpleMovement : MonoBehaviour
 {
     public float speed = 5.0f;

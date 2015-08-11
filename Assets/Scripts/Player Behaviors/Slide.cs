@@ -1,5 +1,8 @@
 ﻿using UnityEngine;
 
+/** Player slide script
+*/
+
 public class Slide : AbstractBehavior {
 
     public float scale = 0.5f;
