@@ -1,10 +1,5 @@
 What to do for Snot Ninja
-
-Features:
--
-
-Code:
--
-
-Design:
--
+-Proper main menu
+-Level select
+-May I suggest grenades?
+-Destrucable secret walls
