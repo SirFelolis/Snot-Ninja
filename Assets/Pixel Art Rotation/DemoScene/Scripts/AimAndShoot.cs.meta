@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-guid: f184bbc83912e5048983c5f5140a8505
-timeCreated: 1438780721
-licenseType: Free
+guid: 6b77780be642aad4d9e63e4c9e14af4e
+labels:
+- 2D
+timeCreated: 1427957354
+licenseType: Store
 MonoImporter:
   serializedVersion: 2
   defaultReferences: []

@@ -1,13 +1,25 @@
 fileFormatVersion: 2
-guid: cae50dce522a6af4cbf5d2567c5769f3
-timeCreated: 1438780726
-licenseType: Free
+guid: 05ffa3ce22fd18046b70760b015ec3e2
+labels:
+- 2D
+timeCreated: 1427965482
+licenseType: Store
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: cop_0
+    21300002: cop_1
+    21300004: cop_2
+    21300006: cop_3
+    21300008: cop_4
+    21300010: cop_5
+    21300012: cop_6
+    21300014: cop_7
+    21300016: cop_8
+    21300018: cop_9
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -26,29 +38,129 @@ TextureImporter:
   cubemapConvolutionSteps: 8
   cubemapConvolutionExponent: 1.5
   seamlessCubemap: 0
-  textureFormat: -1
-  maxTextureSize: 2048
+  textureFormat: -3
+  maxTextureSize: 128
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   rGBM: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: .5, y: .5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   alphaIsTransparency: 1
   textureType: 8
   buildTargetSettings: []
   spriteSheet:
-    sprites: []
+    sprites:
+    - name: cop_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 83
+        width: 15
+        height: 43
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_1
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 83
+        width: 16
+        height: 44
+      alignment: 7
+      pivot: {x: .5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_2
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 83
+        width: 15
+        height: 44
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_3
+      rect:
+        serializedVersion: 2
+        x: 56
+        y: 83
+        width: 15
+        height: 43
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_4
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 83
+        width: 15
+        height: 43
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_5
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 83
+        width: 15
+        height: 43
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_6
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 83
+        width: 15
+        height: 43
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_7
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 38
+        width: 15
+        height: 43
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_8
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 38
+        width: 15
+        height: 43
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: cop_9
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 57
+        width: 1
+        height: 3
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 
   assetBundleName: 

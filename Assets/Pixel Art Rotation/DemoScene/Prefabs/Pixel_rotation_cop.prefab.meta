@@ -1,7 +1,9 @@
 fileFormatVersion: 2
-guid: 57fa7db216882694d8a44ee0055931bb
-timeCreated: 1438780727
-licenseType: Free
+guid: b83687bec0495434ca2af1152b116bb7
+labels:
+- 2D
+timeCreated: 1427966178
+licenseType: Store
 NativeFormatImporter:
   userData: 
   assetBundleName: 

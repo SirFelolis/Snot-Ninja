@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PixelArtRotation;
 
 public class AimAndShoot : MonoBehaviour 
 {
@@ -14,7 +15,7 @@ public class AimAndShoot : MonoBehaviour
 	{
 		_weaponAnimator = Weapon.GetComponent<Animator> ();
 		_copAnimator = GetComponent<Animator> ();
-		_weaponRotation = Weapon.GetComponent<PixelRotation> ();
+        _weaponRotation = Weapon.GetComponent<PixelRotation>();
 
 		Angle = 0;
 	}
@@ -43,7 +44,7 @@ public class AimAndShoot : MonoBehaviour
 				Angle = MinAngle;
 			}
 
-			_weaponRotation.Angle = Angle;
+            _weaponRotation.Angle = Angle;
 		}
 	}
 
@@ -60,5 +61,5 @@ public class AimAndShoot : MonoBehaviour
 
 	private Animator _copAnimator;
 	private Animator _weaponAnimator;
-	private PixelRotation _weaponRotation;
+    private PixelRotation _weaponRotation;
 }
