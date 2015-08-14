@@ -10,7 +10,7 @@ public class Attack : AbstractBehavior
         attacking = _inputState.GetButtonValue(inputButtons[0]);
         var attackTime = _inputState.GetButtonHoldTime(inputButtons[0]);
 
-        if (attackTime > 1.0f)
+        if (attackTime > 0.3f)
         {
             attacking = false;
         }
