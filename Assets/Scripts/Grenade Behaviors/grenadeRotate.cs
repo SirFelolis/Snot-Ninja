@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/** Grenade rotation script
+ * Causes the grenade to rotate while in the air.
+*/
+
 namespace PixelArtRotation
 {
-    public class grenadeRotate : MonoBehaviour
+    public class GrenadeRotate : MonoBehaviour
     {
         public int rotationSpeed;
         public bool grounded;
