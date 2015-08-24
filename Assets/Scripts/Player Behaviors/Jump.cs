@@ -34,12 +34,10 @@ public class Jump : AbstractBehavior
             _rb2d.velocity = vel;
         }
 
-        Debug.Log(timesJumped);
-
         if (canJump && holdTime < .1f && Time.time - lastJumpTime > jumpDelay)
             timesJumped++;
 
-        if (_collisionState.standing)
+        if (_collisionState.standing) 
         {
             jumpsRemaining = jumpCount;
             timesJumped = 0;
