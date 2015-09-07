@@ -11,11 +11,11 @@ public class GrenadeExplode : MonoBehaviour
     public GameObject smokeParticle;
 
     private float currentTime;
-    private Rigidbody2D _rb2d;
+//    private Rigidbody2D _rb2d;
 
     void Awake()
     {
-        _rb2d = GetComponent<Rigidbody2D>();
+//        _rb2d = GetComponent<Rigidbody2D>();
     }
 
     void Update()
