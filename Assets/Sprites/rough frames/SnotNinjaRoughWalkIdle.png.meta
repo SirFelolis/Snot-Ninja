@@ -1,0 +1,291 @@
+fileFormatVersion: 2
+guid: fe1ee37d80477014e9a11976d7db358c
+timeCreated: 1441655078
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SnotNinjaRough_Idle_0
+    21300002: SnotNinjaRough_Idle_1
+    21300004: SnotNinjaRough_Idle_2
+    21300006: SnotNinjaRough_Run_0
+    21300008: SnotNinjaRough_Run_1
+    21300010: SnotNinjaRough_Run_2
+    21300012: SnotNinjaRough_Run_3
+    21300014: SnotNinjaRough_Run_4
+    21300016: SnotNinjaRough_Run_5
+    21300018: SnotNinjaRough_Idle_2
+    21300020: SnotNinjaRough_Idle_3
+    21300022: SnotNinjaRough_Run_1
+    21300024: SnotNinjaRough_Run_2
+    21300026: SnotNinjaRough_Run_3
+    21300028: SnotNinjaRough_Run_4
+    21300030: SnotNinjaRough_Run_5
+    21300032: SnotNinjaRough_Jump_01
+    21300034: SnotNinjaRough_Jump_02
+    21300036: SnotNinjaRough_Jump_03
+    21300038: SnotNinjaRough_Jump_04
+    21300040: SnotNinjaRough_Jump_05
+    21300042: SnotNinjaRough_Jump_06
+    21300044: SnotNinjaRough_Jump_07
+    21300046: SnotNinjaRough_Jump_08
+    21300048: SnotNinjaRough_Jump_09
+    21300050: SnotNinjaRough_Jump_10
+    21300052: SnotNinjaRough_Jump_11
+    21300054: SnotNinjaRough_Idle_01
+    21300056: SnotNinjaRough_Idle_03
+    21300058: SnotNinjaRough_Run_01
+    21300060: SnotNinjaRough_Run_02
+    21300062: SnotNinjaRough_Run_03
+    21300064: SnotNinjaRough_Run_04
+    21300066: SnotNinjaRough_Run_05
+    21300068: SnotNinjaRough_Run_06
+    21300070: SnotNinjaRough_Idle_02
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 4
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SnotNinjaRough_Jump_01
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 774
+        width: 100
+        height: 101
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_02
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 803
+        width: 118
+        height: 72
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_03
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 808
+        width: 88
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_04
+      rect:
+        serializedVersion: 2
+        x: 308
+        y: 799
+        width: 72
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_05
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 684
+        width: 66
+        height: 90
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_06
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 698
+        width: 63
+        height: 76
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_07
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 703
+        width: 87
+        height: 71
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_08
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 708
+        width: 86
+        height: 66
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Idle_02
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 583
+        width: 110
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_10
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 558
+        width: 81
+        height: 124
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_11
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 554
+        width: 78
+        height: 128
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Idle_01
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 583
+        width: 110
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Idle_03
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 455
+        width: 110
+        height: 100
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Run_01
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 465
+        width: 100
+        height: 88
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Run_02
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 467
+        width: 108
+        height: 87
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Run_03
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 475
+        width: 103
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Run_04
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 375
+        width: 99
+        height: 79
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Run_05
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 373
+        width: 101
+        height: 81
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Run_06
+      rect:
+        serializedVersion: 2
+        x: 203
+        y: 377
+        width: 100
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SnotNinjaRough_Jump_09
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 682
+        width: 96
+        height: 92
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
