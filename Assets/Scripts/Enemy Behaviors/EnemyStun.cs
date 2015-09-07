@@ -11,7 +11,7 @@ public class EnemyStun : AbstractEnemyBehavior
     protected override void Awake()
     {
         base.Awake();
-        defaultStunTime= stunTime;
+        defaultStunTime = stunTime;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -27,8 +27,10 @@ public class EnemyStun : AbstractEnemyBehavior
 
     void FixedUpdate()
     {
+        ToggleScripts(true);
         if (stunned)
         {
+            ToggleScripts(false);
             stunTime -= Time.deltaTime;
         }
 
