@@ -9,7 +9,7 @@ public class Walk : AbstractBehavior
     public float runMultiplier = 1.0f;
     public bool moving;
 
-	void Update ()
+    void FixedUpdate()
     {
         moving = false;
 
