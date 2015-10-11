@@ -11,6 +11,8 @@ public class CameraPosition : MonoBehaviour
 {
     public Transform playerPos;
     public Transform playerVelAnchor;
+    public Transform playerConAnchor;
+    public GameObject playerObject;
     public float smooth;
 
     [HideInInspector]
@@ -20,11 +22,13 @@ public class CameraPosition : MonoBehaviour
     public Vector2 pointOfInterest = new Vector2();
 
     private float startSmooth;
-    
+
+    private Rigidbody2D _playerRb2d;
     private Vector2 cameraPosition = new Vector2();
 
     void Awake()
     {
+        _playerRb2d = playerObject.GetComponent<Rigidbody2D>();
         startSmooth = smooth;
     }
 
@@ -36,8 +40,11 @@ public class CameraPosition : MonoBehaviour
 
         if (camState == CAMERA_STATE.SMART)
         {
-            Vector2 averagePos = (playerPos.position + playerVelAnchor.position) / 2;
-            cameraPosition = averagePos;
+            Vector2 averagePos = (playerPos.position + playerVelAnchor.position + playerConAnchor.position) / 3;
+/*            if (_playerRb2d.velocity.y != 0)
+                cameraPosition.x = averagePos.x;
+            else*/
+                cameraPosition = averagePos;
         }
         if (camState == CAMERA_STATE.FIXED)
         {

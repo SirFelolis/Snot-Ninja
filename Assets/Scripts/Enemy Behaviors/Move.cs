@@ -7,7 +7,7 @@ using System.Collections;
 public class Move : AbstractEnemyBehavior
 {
     public float speed = 50.0f; // For patrolling
-    public float speedMultiplier = 1.1f; // When running
+    public float speedMultiplier = 1.1f; // For running
     public bool moving;
     public float acc = 1.0f;
 
