@@ -23,6 +23,7 @@ public class Jump : AbstractBehavior
 
     void Update()
     {
+
         jumpReleased = Input.GetButtonUp("Jump");
         canJump = _inputState.GetButtonValue(inputButtons[0]);
         holdTime = _inputState.GetButtonHoldTime(inputButtons[0]);
@@ -62,9 +63,17 @@ public class Jump : AbstractBehavior
 
     protected virtual void OnJump()
     {
-        var vel = _rb2d.velocity;
-        lastJumpTime = Time.time;
-        _rb2d.velocity = new Vector2(vel.x, jumpSpeed);
-//        timesJumped++;
+        if (jumpsRemaining == 1)
+        {
+            var vel = _rb2d.velocity;
+            lastJumpTime = Time.time;
+            _rb2d.velocity = new Vector2(vel.x, jumpSpeed / 1.5f);
+        }
+        else
+        {
+            var vel = _rb2d.velocity;
+            lastJumpTime = Time.time;
+            _rb2d.velocity = new Vector2(vel.x, jumpSpeed);
+        }
     }
 }
