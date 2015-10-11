@@ -10,7 +10,8 @@ public enum Buttons
     Left,
     Jump,
     Down,
-    Fire1
+    Fire1,
+    Fire2
 }
 
 public enum Condition
