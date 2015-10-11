@@ -25,12 +25,12 @@ public class PlayerManager : MonoBehaviour
             ChangeAnimationState(0);
         }
 
-        if (_inputState.absVelX > 0.2f) // Running animation
+        if (_inputState.absVelX > 2.5) // Running animation
         {
             ChangeAnimationState(1);
         }
 
-        if (_inputState.absVelY > 0.5f) // Jumping animation
+        if (_inputState.absVelY > 0.5f && !_collisionState.standing) // Jumping animation
         {
             ChangeAnimationState(2);
         }
@@ -38,11 +38,6 @@ public class PlayerManager : MonoBehaviour
         if (_attackBehavior.attacking) // Attacking animation
         {
             ChangeAnimationState(3);
-        }
-
-        if (!_collisionState.standing && _collisionState.onWall) // Wall slide animation
-        {
-            ChangeAnimationState(4);
         }
     }
 
