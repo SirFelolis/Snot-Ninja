@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 354bd702ea012644495697c0b3a5b343
+timeCreated: 1443714127
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SNinja_Slash_0
+    21300002: SNinja_Slash_1
+    21300004: SNinja_Slash_2
+    21300006: SNinja_Slash_3
+    21300008: SNinja_Slash_4
+    21300010: SNinja_Slash_5
+    21300012: SNinja_Slash_6
+    21300014: SNinja_Slash_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 7
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SNinja_Slash_0
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 1784
+        width: 181
+        height: 165
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Slash_1
+      rect:
+        serializedVersion: 2
+        x: 339
+        y: 1776
+        width: 392
+        height: 154
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Slash_2
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1774
+        width: 422
+        height: 165
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Slash_3
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 1792
+        width: 408
+        height: 167
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Slash_4
+      rect:
+        serializedVersion: 2
+        x: 1707
+        y: 1783
+        width: 180
+        height: 156
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Slash_5
+      rect:
+        serializedVersion: 2
+        x: 119
+        y: 1519
+        width: 183
+        height: 162
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Slash_6
+      rect:
+        serializedVersion: 2
+        x: 419
+        y: 1516
+        width: 178
+        height: 165
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Slash_7
+      rect:
+        serializedVersion: 2
+        x: 680
+        y: 1519
+        width: 168
+        height: 165
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,144 @@
+fileFormatVersion: 2
+guid: 77e45214ce4e47546a81224334e4dd8c
+timeCreated: 1443713654
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SNinja_JumpSlash_0
+    21300002: SNinja_JumpSlash_1
+    21300004: SNinja_JumpSlash_2
+    21300006: SNinja_JumpSlash_3
+    21300008: SNinja_JumpSlash_4
+    21300010: SNinja_JumpSlash_5
+    21300012: SNinja_JumpSlash_6
+    21300014: SNinja_JumpSlash_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 7
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SNinja_JumpSlash_0
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 1659
+        width: 178
+        height: 225
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_JumpSlash_1
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 1616
+        width: 334
+        height: 325
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_JumpSlash_2
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 1611
+        width: 336
+        height: 331
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_JumpSlash_3
+      rect:
+        serializedVersion: 2
+        x: 1136
+        y: 1623
+        width: 327
+        height: 315
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_JumpSlash_4
+      rect:
+        serializedVersion: 2
+        x: 1533
+        y: 1657
+        width: 165
+        height: 246
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_JumpSlash_5
+      rect:
+        serializedVersion: 2
+        x: 1779
+        y: 1658
+        width: 162
+        height: 241
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_JumpSlash_6
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 1329
+        width: 169
+        height: 231
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_JumpSlash_7
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 1337
+        width: 181
+        height: 235
+      alignment: 5
+      pivot: {x: 1, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

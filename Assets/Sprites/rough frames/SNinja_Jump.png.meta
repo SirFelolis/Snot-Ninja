@@ -1,0 +1,177 @@
+fileFormatVersion: 2
+guid: a9e1b6d708f33a049bb84b00fc7a0899
+timeCreated: 1443714132
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SNinja_Jump_0
+    21300002: SNinja_Jump_1
+    21300004: SNinja_Jump_2
+    21300006: SNinja_Jump_3
+    21300008: SNinja_Jump_4
+    21300010: SNinja_Jump_5
+    21300012: SNinja_Jump_6
+    21300014: SNinja_Jump_7
+    21300016: SNinja_Jump_8
+    21300018: SNinja_Jump_9
+    21300020: SNinja_Jump_10
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 8
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 7
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SNinja_Jump_0
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1707
+        width: 165
+        height: 168
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_1
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1732
+        width: 167
+        height: 147
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_2
+      rect:
+        serializedVersion: 2
+        x: 605
+        y: 1762
+        width: 154
+        height: 116
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_3
+      rect:
+        serializedVersion: 2
+        x: 853
+        y: 1759
+        width: 127
+        height: 133
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_4
+      rect:
+        serializedVersion: 2
+        x: 1119
+        y: 1749
+        width: 117
+        height: 159
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_5
+      rect:
+        serializedVersion: 2
+        x: 1424
+        y: 1754
+        width: 110
+        height: 134
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_6
+      rect:
+        serializedVersion: 2
+        x: 1654
+        y: 1735
+        width: 154
+        height: 125
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_7
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 1473
+        width: 150
+        height: 115
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_8
+      rect:
+        serializedVersion: 2
+        x: 381
+        y: 1440
+        width: 171
+        height: 162
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_9
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 1415
+        width: 143
+        height: 217
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: SNinja_Jump_10
+      rect:
+        serializedVersion: 2
+        x: 877
+        y: 1418
+        width: 137
+        height: 225
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
