@@ -5,14 +5,25 @@ public class Attack : AbstractBehavior
 {
     public bool attacking;
 
-    void Update()
+    private float attackTime;
+
+    void FixedUpdate()
     {
-        attacking = _inputState.GetButtonValue(inputButtons[0]);
-        var attackTime = _inputState.GetButtonHoldTime(inputButtons[0]);
+        var attackKey= _inputState.GetButtonValue(inputButtons[0]);
+
+        if (attackKey && _collisionState.standing)
+        {
+            attacking = true;
+        }
 
         if (attackTime > 0.3f)
         {
             attacking = false;
         }
+
+        if (attacking)
+            attackTime += Time.deltaTime;
+        else
+            attackTime = 0;
     }
 }

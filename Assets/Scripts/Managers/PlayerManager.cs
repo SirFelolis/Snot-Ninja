@@ -20,21 +20,23 @@ public class PlayerManager : MonoBehaviour
 
     void Update()
     {
-        if (_collisionState.standing) // Idle animation
+        if (!_attackBehavior.attacking)
         {
-            ChangeAnimationState(0);
-        }
+            if (_collisionState.standing) // Idle animation
+            {
+                ChangeAnimationState(0);
+            }
 
-        if (_inputState.absVelX > 2.5) // Running animation
-        {
-            ChangeAnimationState(1);
-        }
+            if (_inputState.absVelX > 2.5) // Running animation
+            {
+                ChangeAnimationState(1);
+            }
 
-        if (_inputState.absVelY > 0.5f && !_collisionState.standing) // Jumping animation
-        {
-            ChangeAnimationState(2);
+            if (_inputState.absVelY > 0.5f && !_collisionState.standing) // Jumping animation
+            {
+                ChangeAnimationState(2);
+            }
         }
-
         if (_attackBehavior.attacking) // Attacking animation
         {
             ChangeAnimationState(3);
