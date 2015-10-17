@@ -23,12 +23,10 @@ public class CameraPosition : MonoBehaviour
 
     private float startSmooth;
 
-    private Rigidbody2D _playerRb2d;
     private Vector2 cameraPosition = new Vector2();
 
     void Awake()
     {
-        _playerRb2d = playerObject.GetComponent<Rigidbody2D>();
         startSmooth = smooth;
     }
 
