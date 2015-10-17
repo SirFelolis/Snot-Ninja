@@ -9,9 +9,10 @@ public class Attack : AbstractBehavior
 
     void FixedUpdate()
     {
-        var attackKey= _inputState.GetButtonValue(inputButtons[0]);
+        var attackKey = _inputState.GetButtonValue(inputButtons[0]);
+        var holdTime = _inputState.GetButtonHoldTime(inputButtons[0]);
 
-        if (attackKey && _collisionState.standing)
+        if (attackKey && _collisionState.standing && holdTime < 0.1f)
         {
             attacking = true;
         }
