@@ -7,6 +7,7 @@ public class Walk : AbstractBehavior
 {
     public float speed = 50.0f;
     public float runMultiplier = 1.0f;
+    public float maxSpeed;
     public bool moving;
 
     void FixedUpdate()
@@ -16,15 +17,27 @@ public class Walk : AbstractBehavior
         var right = _inputState.GetButtonValue(inputButtons[0]);
         var left = _inputState.GetButtonValue(inputButtons[1]);
 
-        if (right || left)
+        if (_collisionState.standing)
         {
-            var currentSpeed = speed;
+            if (right || left)
+            {
+                var currentSpeed = speed;
+
+                moving = true;
+
+                var velX = currentSpeed * Input.GetAxis("Horizontal");
+
+                _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
+            }
+        }
+        else
+        {
+            var currentSpeed = speed / 8.0f;
 
             moving = true;
 
-            var velX = currentSpeed * Input.GetAxis("Horizontal");
-
-            _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
+            _rb2d.velocity = new Vector2(Mathf.Lerp(_rb2d.velocity.x, Mathf.Clamp(_rb2d.velocity.x, -maxSpeed, maxSpeed), 0.5f), _rb2d.velocity.y);
+            _rb2d.velocity += new Vector2(currentSpeed * Input.GetAxis("Horizontal"), 0);
         }
     }
 }
