@@ -9,6 +9,7 @@ public enum Buttons
     Right,
     Left,
     Jump,
+    Up,
     Down,
     Fire1,
     Fire2
