@@ -5,6 +5,7 @@ public enum CAMERA_STATE
 {
     FIXED,
     SMART,
+    SEMIFIXED,
 }
 
 public class CameraPosition : MonoBehaviour
@@ -39,15 +40,18 @@ public class CameraPosition : MonoBehaviour
         if (camState == CAMERA_STATE.SMART)
         {
             Vector2 averagePos = (playerPos.position + playerVelAnchor.position + playerConAnchor.position) / 3;
-/*            if (_playerRb2d.velocity.y != 0)
-                cameraPosition.x = averagePos.x;
-            else*/
-                cameraPosition = averagePos;
+            cameraPosition = averagePos;
         }
         if (camState == CAMERA_STATE.FIXED)
         {
             smooth /= 1.5f;
             cameraPosition = pointOfInterest;
+        }
+        if (camState == CAMERA_STATE.SEMIFIXED)
+        {
+            smooth /= 2f;
+            Vector2 averagePos = (playerPos.position * 0.1f + (Vector3)pointOfInterest * 1.9f) / 2;
+            cameraPosition = averagePos;
         }
         transform.position = new Vector3(Mathf.Lerp(transform.position.x, cameraPosition.x, smooth), Mathf.Lerp(transform.position.y, cameraPosition.y, smooth), transform.position.z);
     }

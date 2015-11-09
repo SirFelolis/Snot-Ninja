@@ -22,7 +22,7 @@ public class PointOfInterest : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _camPos.GetComponent<Camera>().orthographicSize = Mathf.Lerp(_camPos.GetComponent<Camera>().orthographicSize, size, zoomSmooth);
-            _camPos.camState = CAMERA_STATE.FIXED;
+            _camPos.camState = CAMERA_STATE.SEMIFIXED;
             _camPos.pointOfInterest = (Vector2)target.position;
         }
     }
