@@ -23,8 +23,12 @@ public class Attack : AbstractBehavior
         }
 
         if (attacking)
+        {
             attackTime += Time.deltaTime;
+        }
         else
+        {
             attackTime = 0;
+        }
     }
 }
