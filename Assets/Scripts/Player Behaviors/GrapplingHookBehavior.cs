@@ -31,7 +31,7 @@ public class GrapplingHookBehavior : AbstractBehavior
             OnGrapplingHookAttached();
         }
 
-        if (!shootHook && _attached)
+        if ((!shootHook || _collisionState.onWall || _collisionState.standing) && _attached)
         {
             OnGrapplingHookDetach();
         }
