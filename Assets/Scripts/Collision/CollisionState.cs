@@ -30,7 +30,7 @@ public class CollisionState : MonoBehaviour
 
         standing = Physics2D.OverlapCircle(pos, collisionRadius, collisionLayer);
 
-        pos = _inputState.direction == Directions.Right ? rightPosition : leftPosition;
+        pos = _inputState.direction == Directions.Right ? leftPosition : rightPosition;
         pos.x += transform.position.x;
         pos.y += transform.position.y;
 
