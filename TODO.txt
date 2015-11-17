@@ -1,12 +1,11 @@
 What to do for Snot Ninja
+-Levels
+-Finish design doc
+-Saving and loading
 -Proper main menu
- -Continue option
- -New game option
- -Load game option
+ -Continue option (Current impletation is non fucional)
  -Level select
  -Options menu
   -Video
   -Audio
   -Controls
--May I suggest grenades?
--Destrucable secret walls
