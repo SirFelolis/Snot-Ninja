@@ -12,6 +12,8 @@ public abstract class AbstractBehavior : MonoBehaviour
     protected Rigidbody2D _rb2d;
     protected CollisionState _collisionState;
 
+
+
     protected virtual void Awake()
     {
         _inputState = GetComponent<InputState>();

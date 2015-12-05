@@ -9,6 +9,8 @@
 
 public class Jump : AbstractBehavior
 {
+    [Header("Jumping Fields")]
+
     public float jumpSpeed = 160.0f;
     public float jumpDelay = .2f;
     public int jumpCount = 2;

@@ -5,6 +5,7 @@
 
 public class Walk : AbstractBehavior
 {
+    [Header("Movement Fields")]
     public float speed = 50.0f;
     public float runMultiplier = 1.0f;
     public float maxSpeed;
