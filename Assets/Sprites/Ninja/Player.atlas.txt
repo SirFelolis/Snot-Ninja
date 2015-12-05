@@ -1,0 +1,188 @@
+
+Player.png
+size: 2048,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Head
+  rotate: false
+  xy: 1718, 365
+  size: 220, 137
+  orig: 800, 800
+  offset: 505, 659
+  index: -1
+arm1
+  rotate: true
+  xy: 327, 89
+  size: 127, 207
+  orig: 800, 800
+  offset: 162, 508
+  index: -1
+arm2
+  rotate: true
+  xy: 944, 109
+  size: 157, 107
+  orig: 800, 800
+  offset: 572, 412
+  index: -1
+body
+  rotate: true
+  xy: 401, 218
+  size: 284, 364
+  orig: 800, 800
+  offset: 357, 392
+  index: -1
+eye
+  rotate: true
+  xy: 736, 156
+  size: 60, 27
+  orig: 84, 53
+  offset: 15, 9
+  index: -1
+eyeblink
+  rotate: false
+  xy: 1633, 226
+  size: 60, 27
+  orig: 800, 800
+  offset: 599, 723
+  index: -1
+eyeblink2
+  rotate: false
+  xy: 1321, 138
+  size: 60, 27
+  orig: 800, 800
+  offset: 599, 723
+  index: -1
+flap
+  rotate: false
+  xy: 1708, 216
+  size: 210, 147
+  orig: 800, 800
+  offset: 355, 357
+  index: -1
+foot1
+  rotate: true
+  xy: 1200, 135
+  size: 152, 119
+  orig: 800, 800
+  offset: 57, 1
+  index: -1
+foot2
+  rotate: false
+  xy: 1473, 162
+  size: 158, 91
+  orig: 800, 800
+  offset: 529, 65
+  index: -1
+foot3
+  rotate: true
+  xy: 1053, 34
+  size: 108, 137
+  orig: 800, 800
+  offset: 579, 65
+  index: -1
+hand1
+  rotate: false
+  xy: 536, 95
+  size: 198, 121
+  orig: 800, 800
+  offset: 30, 430
+  index: -1
+hand2
+  rotate: true
+  xy: 1192, 21
+  size: 112, 156
+  orig: 800, 800
+  offset: 682, 451
+  index: -1
+hand3
+  rotate: false
+  xy: 1053, 144
+  size: 145, 143
+  orig: 800, 800
+  offset: 320, 413
+  index: -1
+hand4
+  rotate: false
+  xy: 767, 136
+  size: 175, 130
+  orig: 800, 800
+  offset: 561, 450
+  index: -1
+neck
+  rotate: true
+  xy: 1940, 371
+  size: 131, 102
+  orig: 800, 800
+  offset: 494, 667
+  index: -1
+scabbard1
+  rotate: false
+  xy: 2, 10
+  size: 323, 224
+  orig: 800, 800
+  offset: 145, 324
+  index: -1
+shin1
+  rotate: true
+  xy: 1003, 289
+  size: 213, 254
+  orig: 800, 800
+  offset: 139, 93
+  index: -1
+shin2
+  rotate: true
+  xy: 327, 2
+  size: 85, 206
+  orig: 800, 800
+  offset: 532, 135
+  index: -1
+shoulder1
+  rotate: false
+  xy: 1476, 366
+  size: 240, 136
+  orig: 800, 800
+  offset: 225, 623
+  index: -1
+shoulder2
+  rotate: true
+  xy: 1476, 255
+  size: 109, 230
+  orig: 800, 800
+  offset: 552, 438
+  index: -1
+snot
+  rotate: false
+  xy: 1920, 251
+  size: 34, 112
+  orig: 800, 800
+  offset: 669, 596
+  index: -1
+sword1
+  rotate: false
+  xy: 1321, 167
+  size: 150, 134
+  orig: 800, 800
+  offset: 410, 483
+  index: -1
+sword2
+  rotate: false
+  xy: 2, 236
+  size: 397, 266
+  orig: 800, 800
+  offset: 163, 351
+  index: -1
+thigh1
+  rotate: true
+  xy: 1259, 303
+  size: 199, 215
+  orig: 800, 800
+  offset: 261, 281
+  index: -1
+thigh2
+  rotate: false
+  xy: 767, 268
+  size: 234, 234
+  orig: 800, 800
+  offset: 437, 262
+  index: -1
