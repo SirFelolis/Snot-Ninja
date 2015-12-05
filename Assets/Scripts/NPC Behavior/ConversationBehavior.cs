@@ -8,6 +8,7 @@ public class ConversationBehavior : MonoBehaviour
     public Text text;
     public Image portrait;
     public GameObject textPanel;
+    public Sprite subjectImage;
 
     private bool canTalk = false;
 
@@ -19,6 +20,7 @@ public class ConversationBehavior : MonoBehaviour
         {
             if (Input.GetAxis("Vertical") > 0.1 && !canTalk)
             {
+                Time.timeScale = 0;
                 canTalk = true;
                 index = 0;
             }
@@ -44,6 +46,7 @@ public class ConversationBehavior : MonoBehaviour
 
     void OnDialogue()
     {
+        portrait.sprite = subjectImage;
         text.text = dialogue[index];
         if (Input.GetButtonUp("Fire2"))
         {
@@ -53,6 +56,7 @@ public class ConversationBehavior : MonoBehaviour
             }
             else
             {
+                Time.timeScale = 1;
                 canTalk = false;
             }
         }
