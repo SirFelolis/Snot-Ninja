@@ -13,7 +13,8 @@ public class PlayerControlsAnchor : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
             pos.x = Mathf.Lerp(pos.x, player.transform.position.x + Input.GetAxis("Horizontal") * 80, smooth);
-            pos.y = Mathf.Lerp(pos.y, player.transform.position.y + (Input.GetAxis("Vertical") * 80) / verticalNegateFactor, smooth);
+//            pos.y = Mathf.Lerp(pos.y, player.transform.position.y + (Input.GetAxis("Vertical") * 80) / verticalNegateFactor, smooth);
+            pos.y = player.transform.position.y;
         }
         transform.position = pos;
     }
