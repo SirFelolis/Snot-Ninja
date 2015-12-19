@@ -4,24 +4,25 @@ using System.Collections;
 
 public class ConversationBehavior : MonoBehaviour
 {
-    public string[] dialogue;
+    public GameObject textBox;
+
     public Text text;
+    
+    public string[] dialogue;
+
     public Image portrait;
-    public GameObject textPanel;
     public Sprite subjectImage;
 
-    private bool canTalk = false;
-
+    private bool isActive = false;
     private int index = 0; // How far are we into the dialogue?
-    
-    void OnTriggerStay2D(Collider2D other)
+
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetAxis("Vertical") > 0.1 && !canTalk)
+            if (!isActive)
             {
-                Time.timeScale = 0;
-                canTalk = true;
+                isActive = true;
                 index = 0;
             }
         }
@@ -31,14 +32,14 @@ public class ConversationBehavior : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            canTalk = false;
+            isActive = false;
         }
     }
 
 	void Update()
 	{
-        textPanel.SetActive(canTalk);
-        if (dialogue.Length > 0 && canTalk)
+        textBox.SetActive(isActive);
+        if (dialogue.Length > 0 && isActive)
         {
             OnDialogue();
         }
@@ -48,7 +49,7 @@ public class ConversationBehavior : MonoBehaviour
     {
         portrait.sprite = subjectImage;
         text.text = dialogue[index];
-        if (Input.GetButtonUp("Fire2"))
+        if (Input.GetButtonUp("Fire3"))
         {
             if (index < (dialogue.Length - 1))
             {
@@ -56,8 +57,7 @@ public class ConversationBehavior : MonoBehaviour
             }
             else
             {
-                Time.timeScale = 1;
-                canTalk = false;
+                isActive = false;
             }
         }
     }
