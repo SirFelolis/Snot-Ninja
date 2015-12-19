@@ -56,7 +56,7 @@ public class Jump : AbstractBehavior
             {
                 if (jumpsRemaining > 0)
                 {
-                    OnJump();
+//                    OnJump();
                     jumpsRemaining--;
                 }
             }
@@ -69,7 +69,7 @@ public class Jump : AbstractBehavior
         {
             var vel = _rb2d.velocity;
             lastJumpTime = Time.time;
-            _rb2d.velocity = new Vector2(vel.x, jumpSpeed / 1.5f);
+            _rb2d.velocity = new Vector2(vel.x, jumpSpeed / 1.3f);
         }
         else
         {
