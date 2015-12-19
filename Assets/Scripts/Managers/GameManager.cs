@@ -6,14 +6,14 @@
 
 public class GameManager : MonoBehaviour
 {
-    public GameObject player; // This is the game manager of course we need to track the player DUUUUH
+    public GameObject player;
     public bool playerDead;
 
-    private string _playerTag;
+    private string _playerName;
 
     void Awake()
     {
-        _playerTag = player.name;
+        _playerName = player.name;
     }
 
     void Update()
@@ -25,10 +25,10 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Application.Quit();
+//            Application.Quit();
         }
 
-        if (GameObject.Find(_playerTag) == null)
+        if (GameObject.Find(_playerName) == null)
         {
             if (!playerDead)
             {
