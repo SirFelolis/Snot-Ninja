@@ -5,8 +5,6 @@ public class PointOfInterest : MonoBehaviour
 {
     public Transform target;
     public float size = 100.0f;
-    [Range(0.0f, 1.0f)]
-    public float zoomSmooth = 0.2f;
 
     private float _defaultSize;
     private CameraPosition _camPos;
@@ -21,9 +19,9 @@ public class PointOfInterest : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _camPos.GetComponent<Camera>().orthographicSize = Mathf.Lerp(_camPos.GetComponent<Camera>().orthographicSize, size, zoomSmooth);
             _camPos.camState = CAMERA_STATE.SEMIFIXED;
             _camPos.pointOfInterest = (Vector2)target.position;
+            _camPos.orthoSize = size;
         }
     }
 
@@ -31,9 +29,9 @@ public class PointOfInterest : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            _camPos.GetComponent<Camera>().orthographicSize = _defaultSize;
             _camPos.camState = CAMERA_STATE.SMART;
             _camPos.pointOfInterest = new Vector2();
+            _camPos.orthoSize = _defaultSize;
         }
     }
 
