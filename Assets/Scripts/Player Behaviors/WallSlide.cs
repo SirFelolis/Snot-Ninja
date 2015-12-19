@@ -39,7 +39,7 @@ public class WallSlide : AbstractBehavior
 
     void OnStick()
     {
-        _rb2d.gravityScale = 30.0f;
+        _rb2d.gravityScale = 25.0f;
     }
 
     void OffWall()
