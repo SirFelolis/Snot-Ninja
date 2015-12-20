@@ -12,7 +12,7 @@ public class Attack : AbstractBehavior
         var attackKey = _inputState.GetButtonValue(inputButtons[0]);
         var holdTime = _inputState.GetButtonHoldTime(inputButtons[0]);
 
-        if (attackKey && _collisionState.standing && holdTime < 0.1f)
+        if (attackKey && _collisionState.standing && holdTime < 0.1f && _inputState.absVelX < 1f)
         {
             attacking = true;
         }
