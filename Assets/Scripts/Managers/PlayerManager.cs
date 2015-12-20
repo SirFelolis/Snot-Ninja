@@ -6,8 +6,8 @@
 public class PlayerManager : MonoBehaviour
 {
     private InputState _inputState;
-    private Animator _animator;
-    private SkeletonAnimator _skeleton;
+//    private Animator _animator;
+    private SkeletonAnimation _animator;
     private CollisionState _collisionState;
     private Attack _attackBehavior;
     private Rigidbody2D _rb2d;
@@ -16,47 +16,62 @@ public class PlayerManager : MonoBehaviour
     void Awake()
     {
         _inputState = GetComponent<InputState>();
-        _animator = GetComponentInChildren<Animator>();
-        _skeleton = GetComponentInChildren<SkeletonAnimator>();
+        _animator = GetComponentInChildren<SkeletonAnimation>();
         _collisionState = GetComponent<CollisionState>();
         _attackBehavior = GetComponent<Attack>();
         _rb2d = GetComponent<Rigidbody2D>();
         _hook = GetComponent<GrapplingHookBehavior>();
     }
 
+
     void Update()
     {
-        _skeleton.skeleton.SetBonesToSetupPose();
-        if (!_attackBehavior.attacking)
+        _animator.state.TimeScale = 1;
+        if (_attackBehavior.attacking)
         {
-            if (_collisionState.standing) // Idle animation
+            ChangeAnimationState("slash_stand", false); // Attacking animation
+            //            ChangeAnimationState(4);
+        }
+        else
+        {
+            if (_inputState.absVelX < 0.2f && _collisionState.standing) // Idle animation
             {
-                ChangeAnimationState(0);
+                ChangeAnimationState("idle", true);
+                //                ChangeAnimationState(0);
             }
 
             if (_inputState.absVelX > 2.5 && _collisionState.standing) // Running animation
             {
-                ChangeAnimationState(1);
+                ChangeAnimationState("run", true);
+                _animator.state.TimeScale = _inputState.absVelX / 100;
+                //                ChangeAnimationState(1);
+                Debug.Log(_inputState.absVelX / 100);
             }
 
-            if (_rb2d.velocity.y > 1f && !_collisionState.standing && !_hook.isGrappled) // Jumping animation
+            if (_rb2d.velocity.y > 50f && !_collisionState.standing && !_hook.isGrappled) // Jumping animation
             {
-                ChangeAnimationState(2);
+                ChangeAnimationState("jump", false);
+                //                ChangeAnimationState(2);
             }
 
-            if (_rb2d.velocity.y < 0.0f && !_collisionState.standing) // Falling animation
+            if (_rb2d.velocity.y < -50.0f && !_collisionState.standing) // Falling animation
             {
-                ChangeAnimationState(3);
+                ChangeAnimationState("fall", true);
+                //                ChangeAnimationState(3);
             }
-        }
-        else
-        {
-            ChangeAnimationState(4); // Attacking animation
         }
     }
-
-    void ChangeAnimationState(int value)
+    void ChangeAnimationState(string animationName, bool loop)
     {
-        _animator.SetInteger("AnimState", value);
+        const int TRACK = 0;
+        var state = _animator.state; if (state == null) return;
+        var current = state.GetCurrent(TRACK);
+
+        if (current == null || current.Animation.Name != animationName)
+        {
+            state.SetAnimation(TRACK, animationName, loop);
+            _animator.skeleton.SetBonesToSetupPose();
+            state.Start += delegate { _animator.skeleton.SetToSetupPose(); };
+        }
     }
 }
