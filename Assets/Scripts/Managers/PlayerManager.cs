@@ -6,12 +6,12 @@
 public class PlayerManager : MonoBehaviour
 {
     private InputState _inputState;
-//    private Animator _animator;
     private SkeletonAnimation _animator;
     private CollisionState _collisionState;
     private Attack _attackBehavior;
     private Rigidbody2D _rb2d;
     private GrapplingHookBehavior _hook;
+    private CrouchBehavior _crouch;
 
     void Awake()
     {
@@ -21,6 +21,7 @@ public class PlayerManager : MonoBehaviour
         _attackBehavior = GetComponent<Attack>();
         _rb2d = GetComponent<Rigidbody2D>();
         _hook = GetComponent<GrapplingHookBehavior>();
+        _crouch = GetComponent<CrouchBehavior>();
     }
 
 
@@ -34,7 +35,7 @@ public class PlayerManager : MonoBehaviour
         }
         else
         {
-            if (_inputState.absVelX < 0.2f && _collisionState.standing) // Idle animation
+            if (_inputState.absVelX < 0.2f && _collisionState.standing && !_crouch.crouching) // Idle animation
             {
                 ChangeAnimationState("idle", true);
                 //                ChangeAnimationState(0);
@@ -43,21 +44,25 @@ public class PlayerManager : MonoBehaviour
             if (_inputState.absVelX > 2.5 && _collisionState.standing) // Running animation
             {
                 ChangeAnimationState("run", true);
-                _animator.state.TimeScale = _inputState.absVelX / 100;
+                _animator.state.TimeScale = _inputState.absVelX / 90;
                 //                ChangeAnimationState(1);
-                Debug.Log(_inputState.absVelX / 100);
             }
 
-            if (_rb2d.velocity.y > 50f && !_collisionState.standing && !_hook.isGrappled) // Jumping animation
+            if (_rb2d.velocity.y > 50f && !_collisionState.standing && !_hook.attached) // Jumping animation
             {
                 ChangeAnimationState("jump", false);
                 //                ChangeAnimationState(2);
             }
 
-            if (_rb2d.velocity.y < -50.0f && !_collisionState.standing) // Falling animation
+            if (_rb2d.velocity.y < -50.0f && !_collisionState.standing && !_hook.attached) // Falling animation
             {
                 ChangeAnimationState("fall", true);
                 //                ChangeAnimationState(3);
+            }
+
+            if (_crouch.crouching) // Crouching animation
+            {
+                ChangeAnimationState("crouching", false);
             }
         }
     }
@@ -66,7 +71,6 @@ public class PlayerManager : MonoBehaviour
         const int TRACK = 0;
         var state = _animator.state; if (state == null) return;
         var current = state.GetCurrent(TRACK);
-
         if (current == null || current.Animation.Name != animationName)
         {
             state.SetAnimation(TRACK, animationName, loop);

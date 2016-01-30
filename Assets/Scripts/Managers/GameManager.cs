@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 /** Game manager script
 */
@@ -43,6 +44,6 @@ public class GameManager : MonoBehaviour
     }
 
     void Respawn(){
-        Application.LoadLevel(Application.loadedLevel);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

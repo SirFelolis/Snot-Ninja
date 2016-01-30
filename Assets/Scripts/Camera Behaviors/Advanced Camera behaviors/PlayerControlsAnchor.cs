@@ -19,4 +19,9 @@ public class PlayerControlsAnchor : MonoBehaviour
         transform.position = pos;
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 15.0f);
+    }
 }

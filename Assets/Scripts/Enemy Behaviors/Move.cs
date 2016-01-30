@@ -32,11 +32,11 @@ public class Move : AbstractEnemyBehavior
         else if (speed > defaultSpeed && _enemyFSM.behavior != EnemyBehaviors.Follow)
             speed = defaultSpeed;
 
-        dir = (float)directions;
+        dir = (int)directions;
         if (dir != dirLast)
         {
             speed = 0;
-            dirLast = (float)directions;
+            dirLast = (int)directions;
         }
 
         Vector2 target = Vector2.zero;
@@ -60,8 +60,8 @@ public class Move : AbstractEnemyBehavior
             case EnemyBehaviors.Patrol:
                 moving = true;
                 _rb2d.velocity = new Vector2((float)directions * speed, _rb2d.velocity.y);
-                RaycastHit2D hit1 = Physics2D.Raycast(transform.position, new Vector2(22.0f * (float)directions, -22.0f), 22.0f, _enemyCollisionState.collisionLayer);
-                RaycastHit2D hit2 = Physics2D.Raycast(transform.position, new Vector2(10.0f * (float)directions, 0.0f), 10.0f, _enemyCollisionState.collisionLayer);
+                RaycastHit2D hit1 = Physics2D.Raycast(transform.position, new Vector2(11.0f * (float)directions, -9f), 22.0f, _enemyCollisionState.collisionLayer); // Look for an edge
+                RaycastHit2D hit2 = Physics2D.Raycast(transform.position, new Vector2(12.0f * (float)directions, -5.0f), 12.0f, _enemyCollisionState.collisionLayer); // Look for a wall
                 if (hit1.collider == null || hit2.collider != null)
                 {
                     Turn();
@@ -73,15 +73,5 @@ public class Move : AbstractEnemyBehavior
     void Turn()
     {
         directions = directions == Directions.Right ? Directions.Left : Directions.Right;
-    }
-
-    void OnDrawGizmos()
-    {
-/*        if(_enemySightSate.behavior == EnemyBehaviors.Patrol)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawRay(transform.position, new Vector2(22 * (float)directions, -22)); // For some reason generates a null refrence exception
-            Gizmos.DrawRay(transform.position, new Vector2(10 * (float)directions, 0.0f));
-        }*/
     }
 }

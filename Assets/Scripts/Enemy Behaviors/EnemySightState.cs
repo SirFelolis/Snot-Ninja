@@ -11,7 +11,6 @@ public class EnemySightState : AbstractEnemyBehavior
     public float sightRadiusMultiplier;
     public bool vision;
     public LayerMask canSee;
-    public LayerMask whatIsGround;
 
     private float defaultSightRadius;
 
@@ -36,7 +35,7 @@ public class EnemySightState : AbstractEnemyBehavior
         vision = Physics2D.OverlapCircle(transform.position, sightRadius, canSee);
     }
 
-    void OnDrawGizmos()
+    void OnDrawGizmosSelected()
     {
         if (vision) Gizmos.color = Color.red;
         else

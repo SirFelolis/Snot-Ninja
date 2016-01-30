@@ -11,7 +11,7 @@ public class AntiSlopeSlip : AbstractBehavior
 
             if (hit)
             {
-                _rb2d.velocity -= new Vector2(hit.normal.x, 0);
+                _rb2d.velocity -= new Vector2(hit.normal.x, hit.normal.y);
 
                 var pos = transform.position;
                 pos.y += -hit.normal.x * Mathf.Abs(_rb2d.velocity.x) * Time.deltaTime * (_rb2d.velocity.x - hit.normal.x > 0 ? 1 : -1);

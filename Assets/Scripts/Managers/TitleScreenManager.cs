@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 
 public class TitleScreenManager : MonoBehaviour
@@ -11,12 +12,12 @@ public class TitleScreenManager : MonoBehaviour
 
     public void StartGameNew() // Starts a new game
     {
-        Application.LoadLevel(firstLevel);
+        SceneManager.LoadScene(firstLevel);
     }
 
     public void StartGameContinue() // Continues saved game
     {
-        Application.LoadLevel(savedLevel);
+        SceneManager.LoadScene(savedLevel);
     }
 
     public void ExitGame() // Exits the game
@@ -26,11 +27,11 @@ public class TitleScreenManager : MonoBehaviour
 
     public void Options() // Go to the options menu
     {
-        Application.LoadLevel(optionsMenu);
+        SceneManager.LoadScene(optionsMenu);
     }
 
     public void Return() // Returns back to the main menu (probably from the options)
     {
-        Application.LoadLevel(lastMenu);
+        SceneManager.LoadScene(lastMenu);
     }
 }

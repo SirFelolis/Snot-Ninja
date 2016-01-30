@@ -13,6 +13,7 @@ public class CameraPosition : MonoBehaviour
     public Transform playerPos;
     public Transform playerVelAnchor;
     public Transform playerConAnchor;
+    public Transform enemyPosAnchor;
     public GameObject playerObject;
     [Range(0.0f, 1.0f)]
     public float smooth;
@@ -47,7 +48,7 @@ public class CameraPosition : MonoBehaviour
         {
             if (camState == CAMERA_STATE.SMART)
             {
-                Vector2 averagePos = (playerPos.position + playerVelAnchor.position + playerConAnchor.position) / 3;
+                Vector2 averagePos = (playerPos.position + playerVelAnchor.position + playerConAnchor.position + enemyPosAnchor.position) / 4;
                 cameraPosition = averagePos;
             }
             if (camState == CAMERA_STATE.FIXED)
@@ -58,7 +59,7 @@ public class CameraPosition : MonoBehaviour
             if (camState == CAMERA_STATE.SEMIFIXED)
             {
                 smooth /= 2f;
-                Vector2 averagePos = (playerPos.position * 0.1f + (Vector3)pointOfInterest * 1.9f) / 2;
+                Vector2 averagePos = (playerPos.position * 0.3f + (Vector3)pointOfInterest * 1.7f) / 2;
                 cameraPosition = averagePos;
             }
         }

@@ -8,70 +8,118 @@ public class GrapplingHookBehavior : AbstractBehavior
 {
     public LayerMask whatIsGround;
 
-    public bool isGrappled;
+    public bool canGrapple;
+    public bool hasShot;
+    public bool shooting;
+    public bool aiming;
 
-    protected SpringJoint2D _spring;
-    private bool _attached = false;
+    public float coolDown = 0.5f;
+    private float time;
+
+    public GameObject ball;
+    public GameObject ballHit;
+    public GameObject hookLine;
+
+    [HideInInspector]
+    public bool attached = false;
+    [HideInInspector]
+    public Vector2 attachedPoint = new Vector2();
+
+    private Transform _nose;
 
     protected override void Awake()
     {
         base.Awake();
-        _spring = GetComponent<SpringJoint2D>();
+
+        _nose = GameObject.Find("Nose").transform;
     }
 
-	void FixedUpdate()
+    void FixedUpdate()
+    {
+        if (time <= 0)
+        {
+            canGrapple = true;
+        }
+        else
+        {
+            time -= Time.deltaTime;
+            canGrapple = false;
+        }
+    }
+
+	void Update()
 	{
         var shootHook = _inputState.GetButtonValue(inputButtons[0]);
+        var holdTime = _inputState.GetButtonHoldTime(inputButtons[0]);
 
-        if (shootHook && !_collisionState.standing && !_attached)
+        if (shootHook && holdTime < 0.01f && !attached && canGrapple && !_collisionState.standing && !hasShot)
         {
+            OnShootHook();
+            shooting = true;
+            time = coolDown;
+        }
+
+        if (attached && shooting)
+        {
+            shooting = false;
+            hasShot = true;
             OnGrapplingHookAttach();
         }
 
-        if (_attached)
+        if (attached && !_collisionState.standing && !_collisionState.onWall)
         {
-            OnGrapplingHookAttached();
+            Attached();
         }
 
-        if ((!shootHook || _collisionState.onWall || _collisionState.standing) && _attached)
+        if ((!shootHook || _collisionState.onWall || _collisionState.onCeil) && attached)
         {
             OnGrapplingHookDetach();
         }
+
+        if (_collisionState.standing)
+        {
+            hasShot = false;
+        }
     }
 
-    Vector3 SetGrapplingPoint()
+    void OnShootHook()
     {
-        RaycastHit2D hit = Physics2D.Raycast(
-            transform.position, new Vector2(45.0f * -(float)_inputState.direction, 45.0f),
-            Mathf.Infinity, whatIsGround); // TODO: Should not have infinite reach
-        Vector3 grapplePoint = hit.point;
+        GameObject obj = (GameObject)Instantiate(ball, _nose.position, transform.rotation); // Ball
+        float vert = new float(), horz = new float();
+        horz = Input.GetAxis("HorizontalAlt");
+        vert = Input.GetAxis("VerticalAlt");
 
-        grapplePoint = hit.point;
-        return grapplePoint;
+        if (Mathf.Abs(horz) < 1)
+        {
+            horz = -(int)_inputState.direction;
+        }
+
+        obj.GetComponent<Rigidbody2D>().velocity = new Vector2((horz * 500), -vert * 500);
     }
 
-    void OnGrapplingHookAttach() // Initialize grappling hook
+    void OnGrapplingHookAttach() // Attach grappling hook
     {
-        isGrappled = true;
-        _spring.connectedAnchor = SetGrapplingPoint();
-        _spring.distance = (transform.position - (Vector3)_spring.connectedAnchor).magnitude;
-        _spring.enabled = true;
-        _attached = true;
+        Instantiate(ballHit, attachedPoint, transform.rotation);
+        Instantiate(hookLine,
+            attachedPoint,
+            Quaternion.AngleAxis(
+                Mathf.Atan2(
+                    (_nose.position - (Vector3)attachedPoint).y,
+                    (_nose.position - (Vector3)attachedPoint).x) * Mathf.Rad2Deg,
+                    Vector3.forward)); // Line
+
+        attached = true;
         ToggleScripts(false);
     }
 
-    void OnGrapplingHookAttached() // Run every frame the grappling hook is used
+    void Attached()
     {
-        var value = 250;
-
-        _rb2d.velocity = new Vector2(Mathf.Clamp(_rb2d.velocity.x, -value, value), Mathf.Clamp(_rb2d.velocity.y, -value, value));
+        _rb2d.velocity = ((Vector3)attachedPoint - transform.position).normalized * 250;
     }
 
-    void OnGrapplingHookDetach() // Uninitialze grappling hook
+    void OnGrapplingHookDetach() // Detach grappling hook
     {
-        isGrappled = false;
-        _spring.enabled = false;
-        _attached = false;
+        attached = false;
         ToggleScripts(true);
     }
 }

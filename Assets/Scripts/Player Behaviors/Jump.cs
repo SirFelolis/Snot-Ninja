@@ -18,24 +18,18 @@ public class Jump : AbstractBehavior
     protected float lastJumpTime = 0;
     protected int jumpsRemaining = 0;
 
-    private float timesJumped;
+    private int timesJumped;
     private bool canJump;
     private bool jumpReleased;
     private float holdTime;
 
     void Update()
     {
+        ToggleScripts(true);
 
         jumpReleased = Input.GetButtonUp("Jump");
         canJump = _inputState.GetButtonValue(inputButtons[0]);
         holdTime = _inputState.GetButtonHoldTime(inputButtons[0]);
-
-        if (jumpReleased && _rb2d.velocity.y > 0)
-        {
-            Vector2 vel = _rb2d.velocity;
-            vel.y /= 1.9f;
-            _rb2d.velocity = vel;
-        }
 
         if (canJump && holdTime < .1f && Time.time - lastJumpTime > jumpDelay)
             timesJumped++;
@@ -56,15 +50,24 @@ public class Jump : AbstractBehavior
             {
                 if (jumpsRemaining > 0)
                 {
-//                    OnJump();
+                    OnJump();
                     jumpsRemaining--;
                 }
             }
         }
+
+        if (jumpReleased && _rb2d.velocity.y > 0)
+        {
+            Vector2 vel = _rb2d.velocity;
+            vel.y /= 2f;
+            _rb2d.velocity = vel;
+        }
+
     }
 
     protected virtual void OnJump()
     {
+        ToggleScripts(false);
         if (jumpsRemaining == 1)
         {
             var vel = _rb2d.velocity;

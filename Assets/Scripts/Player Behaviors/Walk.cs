@@ -33,11 +33,19 @@ public class Walk : AbstractBehavior
         }
         else
         {
-            var currentSpeed = speed / 20.0f;
+            var currentSpeed = speed / 15.0f;
 
             moving = true;
 
-            _rb2d.velocity = new Vector2(Mathf.Lerp(_rb2d.velocity.x, Mathf.Clamp(_rb2d.velocity.x, -maxSpeed, maxSpeed), 0.5f), _rb2d.velocity.y);
+            var velX = Mathf.Lerp(
+                _rb2d.velocity.x,
+                Mathf.Clamp(
+                    _rb2d.velocity.x,
+                    -maxSpeed,
+                    maxSpeed),
+                0.5f);
+
+            _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
             _rb2d.velocity += new Vector2(currentSpeed * Input.GetAxis("Horizontal"), 0);
         }
 

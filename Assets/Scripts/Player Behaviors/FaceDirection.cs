@@ -20,5 +20,6 @@ public class FaceDirection : AbstractBehavior
         }
 
         transform.localScale = new Vector3((float)_inputState.direction, 1, 1);
+
     }
 }

@@ -11,6 +11,7 @@ public abstract class AbstractBehavior : MonoBehaviour
     protected InputState _inputState;
     protected Rigidbody2D _rb2d;
     protected CollisionState _collisionState;
+    protected CircleCollider2D _collider;
 
 
 

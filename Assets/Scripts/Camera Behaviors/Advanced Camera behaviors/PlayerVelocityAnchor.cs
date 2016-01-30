@@ -19,9 +19,15 @@ public class PlayerVelocityAnchor : MonoBehaviour
         var pos = transform.position;
         if (GameObject.FindGameObjectWithTag("Player") != null)
         {
-            pos.x = Mathf.Lerp(pos.x, player.transform.position.x + _prb.velocity.x, smooth);
+            pos.x = Mathf.Lerp(pos.x, player.transform.position.x + _prb.velocity.x * 2, smooth);
             pos.y = Mathf.Lerp(pos.y, player.transform.position.y + _prb.velocity.y / verticalNegateFactor, smooth);
         }
         transform.position = pos;
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, 15.0f);
     }
 }
