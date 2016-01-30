@@ -1,0 +1,132 @@
+
+spiderboss_02.png
+size: 2048,2048
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+blink1
+  rotate: false
+  xy: 655, 629
+  size: 101, 86
+  orig: 2500, 2354
+  offset: 1217, 1036
+  index: -1
+blink2
+  rotate: false
+  xy: 1047, 897
+  size: 108, 86
+  orig: 2500, 2354
+  offset: 1211, 1036
+  index: -1
+body
+  rotate: false
+  xy: 2, 858
+  size: 857, 1158
+  orig: 2500, 2354
+  offset: 876, 1054
+  index: -1
+eye
+  rotate: false
+  xy: 1975, 1946
+  size: 71, 70
+  orig: 2500, 2354
+  offset: 1228, 1043
+  index: -1
+eyebrow
+  rotate: true
+  xy: 447, 148
+  size: 136, 67
+  orig: 2500, 2354
+  offset: 1196, 1082
+  index: -1
+eyeglow
+  rotate: false
+  xy: 516, 577
+  size: 137, 138
+  orig: 2500, 2354
+  offset: 1196, 1020
+  index: -1
+head
+  rotate: false
+  xy: 2, 286
+  size: 512, 570
+  orig: 2500, 2354
+  offset: 1013, 923
+  index: -1
+leg1
+  rotate: false
+  xy: 516, 717
+  size: 318, 139
+  orig: 2500, 2354
+  offset: 1549, 1517
+  index: -1
+leg2
+  rotate: false
+  xy: 2, 25
+  size: 443, 259
+  orig: 2500, 2354
+  offset: 1681, 1535
+  index: -1
+leg3
+  rotate: false
+  xy: 1565, 1483
+  size: 233, 533
+  orig: 2500, 2354
+  offset: 2052, 1242
+  index: -1
+mouth
+  rotate: false
+  xy: 1565, 1250
+  size: 210, 231
+  orig: 2500, 2354
+  offset: 1167, 809
+  index: -1
+pupil
+  rotate: false
+  xy: 2, 2
+  size: 21, 21
+  orig: 2500, 2354
+  offset: 1252, 1067
+  index: -1
+vision
+  rotate: false
+  xy: 861, 985
+  size: 702, 1031
+  orig: 2500, 2354
+  offset: 924, 13
+  index: -1
+weakpoint
+  rotate: false
+  xy: 516, 470
+  size: 109, 105
+  orig: 2500, 2354
+  offset: 1206, 1165
+  index: -1
+websplash1
+  rotate: false
+  xy: 1800, 1792
+  size: 170, 75
+  orig: 2500, 2354
+  offset: 1050, 892
+  index: -1
+websplash2
+  rotate: false
+  xy: 861, 882
+  size: 184, 101
+  orig: 2500, 2354
+  offset: 1001, 856
+  index: -1
+websplash3
+  rotate: false
+  xy: 1565, 1134
+  size: 156, 114
+  orig: 2500, 2354
+  offset: 988, 840
+  index: -1
+websplash4
+  rotate: false
+  xy: 1800, 1869
+  size: 173, 147
+  orig: 2500, 2354
+  offset: 940, 788
+  index: -1

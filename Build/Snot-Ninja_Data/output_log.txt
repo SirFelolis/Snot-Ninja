@@ -1,0 +1,33 @@
+Initialize engine version: 5.3.1f1 (cc9cbbcc37b4)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7900 Series (ID=0x679a)
+    Vendor:   ATI
+    VRAM:     3054 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.136 seconds
+Platform assembly: E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: E:\Work\Large Projects\Snot-Ninja\Build\Snot-Ninja_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 3600x1080 at -1680,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 19.974535 ms
+Unloading 4 Unused Serialized files (Serialized files now loaded: 0)
+UnloadTime: 5.539600 ms
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 574.
+Total: 0.510888 ms (FindLiveObjects: 0.035688 ms CreateObjectMapping: 0.021511 ms MarkObjects: 0.438533 ms  DeleteObjects: 0.009288 ms)
+
+Setting up 2 worker threads for Enlighten.
+  Thread -> id: 1a90 -> priority: 1 
+  Thread -> id: 2a3c -> priority: 1 

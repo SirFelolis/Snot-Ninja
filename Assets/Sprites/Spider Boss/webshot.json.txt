@@ -1,0 +1,1 @@
+{"skeleton":{"hash":"Irf/dZUtmIO3eLD1IzAwekMP3/s","spine":"2.1.27","width":0,"height":0,"images":"./images/"},"bones":[{"name":"root"}],"slots":[{"name":"webshot1","bone":"root","attachment":"webshot3"}],"skins":{"default":{"webshot1":{"webshot1":{"y":776,"width":440,"height":1552},"webshot2":{"y":776,"width":440,"height":1552},"webshot3":{"y":776,"width":440,"height":1552}}}}}

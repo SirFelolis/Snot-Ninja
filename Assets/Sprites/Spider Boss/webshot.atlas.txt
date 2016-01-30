@@ -1,0 +1,27 @@
+
+webshot.png
+size: 1024,512
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+webshot1
+  rotate: true
+  xy: 2, 292
+  size: 149, 674
+  orig: 220, 776
+  offset: 31, 54
+  index: -1
+webshot2
+  rotate: true
+  xy: 2, 2
+  size: 144, 639
+  orig: 220, 776
+  offset: 34, 48
+  index: -1
+webshot3
+  rotate: true
+  xy: 2, 148
+  size: 142, 669
+  orig: 220, 776
+  offset: 34, 44
+  index: -1
