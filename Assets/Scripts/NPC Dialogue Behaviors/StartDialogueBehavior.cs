@@ -17,6 +17,9 @@ public class StartDialogueBehavior : MonoBehaviour
 
     public DialogueBoxBehavior textManager;
 
+    public bool autoScroll = false;
+    public float autoScrollSpeed = 1;
+
     [Header("Typing Sound")]
     public AudioClip typingSounds;
 
@@ -45,6 +48,8 @@ public class StartDialogueBehavior : MonoBehaviour
             textManager.endlineIndex = this.endlineIndex;
             textManager.portrait.sprite = this.sourceImage;
             textManager.nameText.text = nameTag;
+            textManager.autoScroll = this.autoScroll;
+            textManager.autoScrollSpeed = this.autoScrollSpeed;
             if (typingSounds != null)
                 textManager.typingSounds = this.typingSounds;
 

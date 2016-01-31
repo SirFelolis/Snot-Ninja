@@ -20,6 +20,11 @@ public class DialogueBoxBehavior : MonoBehaviour
 
     public float printSpeed;
 
+    public bool autoScroll = false;
+    public float autoScrollSpeed = 1;
+
+    private float time;
+
     [Header("Name Tag")]
     public Text nameText;
 
@@ -66,9 +71,8 @@ public class DialogueBoxBehavior : MonoBehaviour
             return;
         }
 
-        //text.text = textLines[lineIndex];
 
-        if (Input.GetButtonDown("Fire3"))
+        if (Input.GetButtonDown("Fire3") && !autoScroll)
         {
             if (!isPrinting)
             {
@@ -86,6 +90,30 @@ public class DialogueBoxBehavior : MonoBehaviour
             else if (isPrinting && !cancelPrinting)
             {
                 cancelPrinting = true;
+            }
+        }
+        else if (autoScroll)
+        {
+            if (!isPrinting)
+            {
+                if (time < autoScrollSpeed)
+                {
+                    time += Time.deltaTime;
+                }
+                else
+                {
+                    time = 0;
+                    lineIndex++;
+
+                    if (lineIndex > endlineIndex)
+                    {
+                        DisableDialogue();
+                    }
+                    else
+                    {
+                        StartCoroutine(TextScroll(textLines[lineIndex]));
+                    }
+                }
             }
         }
     }
