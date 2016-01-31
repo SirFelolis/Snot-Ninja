@@ -11,11 +11,12 @@ public class Move : AbstractEnemyBehavior
     public bool moving;
     public float acc = 1.0f;
 
+    public LayerMask canSee;
+
     private float defaultSpeed;
 
     private float dir = 0.0f;
     private float dirLast = 0.0f;
-
 
     void Start()
     {
@@ -58,11 +59,13 @@ public class Move : AbstractEnemyBehavior
                 _rb2d.velocity = new Vector2(speed * (float)directions, _rb2d.velocity.y);
                 break;
             case EnemyBehaviors.Patrol:
+
                 moving = true;
                 _rb2d.velocity = new Vector2((float)directions * speed, _rb2d.velocity.y);
                 RaycastHit2D hit1 = Physics2D.Raycast(transform.position, new Vector2(11.0f * (float)directions, -9f), 22.0f, _enemyCollisionState.collisionLayer); // Look for an edge
                 RaycastHit2D hit2 = Physics2D.Raycast(transform.position, new Vector2(12.0f * (float)directions, -5.0f), 12.0f, _enemyCollisionState.collisionLayer); // Look for a wall
-                if (hit1.collider == null || hit2.collider != null)
+                RaycastHit2D hit3 = Physics2D.Raycast(transform.position, new Vector2(12.0f * (float)directions, 0), 12.0f, canSee); // Look for another enemy
+                if (hit1.collider == null || hit2.collider != null || hit3.collider != null)
                 {
                     Turn();
                 }
