@@ -40,8 +40,8 @@ arm1
   offset: 81, 254
   index: -1
 arm2
-  rotate: false
-  xy: 403, 49
+  rotate: true
+  xy: 1264, 229
   size: 79, 54
   orig: 400, 400
   offset: 286, 206
@@ -90,28 +90,28 @@ body5
   index: -1
 eye
   rotate: false
-  xy: 974, 100
+  xy: 724, 19
   size: 31, 15
   orig: 42, 27
   offset: 7, 4
   index: -1
 eyebig
-  rotate: false
-  xy: 1886, 415
+  rotate: true
+  xy: 56, 3
   size: 22, 24
   orig: 400, 450
   offset: 303, 365
   index: -1
 eyeblink
   rotate: true
-  xy: 2020, 479
+  xy: 985, 163
   size: 31, 14
   orig: 400, 400
   offset: 299, 361
   index: -1
 eyeblink2
-  rotate: false
-  xy: 724, 20
+  rotate: true
+  xy: 292, 37
   size: 31, 14
   orig: 400, 400
   offset: 299, 361
@@ -125,28 +125,28 @@ flap
   index: -1
 foot1
   rotate: true
-  xy: 974, 117
+  xy: 1395, 237
   size: 77, 60
   orig: 400, 400
   offset: 28, 0
   index: -1
 foot2
   rotate: false
-  xy: 321, 57
+  xy: 1775, 321
   size: 80, 46
   orig: 400, 400
   offset: 264, 32
   index: -1
 foot3
   rotate: false
-  xy: 1113, 141
+  xy: 1534, 260
   size: 55, 69
   orig: 400, 400
   offset: 289, 32
   index: -1
 foot4
   rotate: false
-  xy: 896, 100
+  xy: 1186, 214
   size: 76, 94
   orig: 400, 850
   offset: 32, 173
@@ -159,15 +159,15 @@ hand1
   offset: 15, 215
   index: -1
 hand2
-  rotate: true
-  xy: 484, 47
+  rotate: false
+  xy: 923, 25
   size: 56, 79
   orig: 400, 400
   offset: 341, 225
   index: -1
 hand3
   rotate: false
-  xy: 1178, 236
+  xy: 1320, 242
   size: 73, 72
   orig: 400, 400
   offset: 160, 206
@@ -181,14 +181,14 @@ hand4
   index: -1
 hand5
   rotate: false
-  xy: 292, 2
+  xy: 1653, 290
   size: 58, 53
   orig: 400, 400
   offset: 219, 254
   index: -1
 hand6
   rotate: true
-  xy: 1253, 246
+  xy: 1886, 377
   size: 62, 46
   orig: 400, 400
   offset: 335, 225
@@ -215,8 +215,8 @@ head3
   offset: 262, 387
   index: -1
 head4
-  rotate: false
-  xy: 1113, 212
+  rotate: true
+  xy: 321, 40
   size: 63, 95
   orig: 400, 450
   offset: 291, 314
@@ -230,7 +230,7 @@ headband
   index: -1
 hips
   rotate: true
-  xy: 923, 2
+  xy: 1113, 211
   size: 96, 71
   orig: 400, 400
   offset: 178, 196
@@ -243,8 +243,8 @@ neck
   offset: 247, 333
   index: -1
 neck2
-  rotate: true
-  xy: 352, 3
+  rotate: false
+  xy: 1713, 294
   size: 52, 49
   orig: 400, 450
   offset: 210, 385
@@ -284,9 +284,44 @@ shoulder2
   orig: 400, 400
   offset: 276, 219
   index: -1
-snot
+sneeze01
+  rotate: false
+  xy: 1934, 385
+  size: 41, 59
+  orig: 400, 850
+  offset: 300, 599
+  index: -1
+sneeze02
+  rotate: false
+  xy: 1591, 270
+  size: 60, 73
+  orig: 400, 850
+  offset: 287, 606
+  index: -1
+sneeze03
   rotate: true
-  xy: 1775, 349
+  xy: 510, 22
+  size: 81, 89
+  orig: 400, 850
+  offset: 276, 614
+  index: -1
+sneeze04
+  rotate: false
+  xy: 896, 106
+  size: 87, 88
+  orig: 400, 850
+  offset: 272, 622
+  index: -1
+sneeze05
+  rotate: false
+  xy: 418, 26
+  size: 90, 77
+  orig: 400, 850
+  offset: 270, 637
+  index: -1
+snot
+  rotate: false
+  xy: 2020, 454
   size: 18, 56
   orig: 400, 400
   offset: 334, 298
@@ -300,7 +335,7 @@ sword01
   index: -1
 swordhandle01
   rotate: false
-  xy: 1036, 133
+  xy: 1457, 261
   size: 75, 68
   orig: 400, 400
   offset: 205, 241
