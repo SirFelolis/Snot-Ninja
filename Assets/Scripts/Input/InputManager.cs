@@ -12,7 +12,8 @@ public enum Buttons
     Up,
     Down,
     Fire1,
-    Fire2
+    Fire2,
+    Shift
 }
 
 public enum Condition

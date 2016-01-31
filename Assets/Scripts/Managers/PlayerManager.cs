@@ -12,6 +12,8 @@ public class PlayerManager : MonoBehaviour
     private Rigidbody2D _rb2d;
     private GrapplingHookBehavior _hook;
     private CrouchBehavior _crouch;
+    private Walk _walk;
+    private PlayerHurtBehavior _hurtBehavior;
 
     void Awake()
     {
@@ -22,6 +24,8 @@ public class PlayerManager : MonoBehaviour
         _rb2d = GetComponent<Rigidbody2D>();
         _hook = GetComponent<GrapplingHookBehavior>();
         _crouch = GetComponent<CrouchBehavior>();
+        _walk = GetComponent<Walk>();
+        _hurtBehavior = GetComponent<PlayerHurtBehavior>();
     }
 
 
@@ -41,10 +45,24 @@ public class PlayerManager : MonoBehaviour
                 //                ChangeAnimationState(0);
             }
 
-            if (_inputState.absVelX > 2.5 && _collisionState.standing) // Running animation
+            if (_inputState.absVelX > 2.5 && _collisionState.standing && !_walk.skidding) // Running animation
             {
-                ChangeAnimationState("run", true);
-                _animator.state.TimeScale = _inputState.absVelX / 90;
+                if (_walk.slowMoving)
+                {
+                    ChangeAnimationState("walk", true);
+                    _animator.state.TimeScale = _inputState.absVelX / 30;
+                }
+                else
+                {
+                    ChangeAnimationState("run", true);
+                    _animator.state.TimeScale = _inputState.absVelX / 90;
+                }
+                //                ChangeAnimationState(1);
+            }
+
+            if (_walk.skidding && _collisionState.standing) // Skidding animation
+            {
+                ChangeAnimationState("run_stop", false);
                 //                ChangeAnimationState(1);
             }
 
@@ -68,6 +86,7 @@ public class PlayerManager : MonoBehaviour
     }
     void ChangeAnimationState(string animationName, bool loop)
     {
+
         const int TRACK = 0;
         var state = _animator.state; if (state == null) return;
         var current = state.GetCurrent(TRACK);
