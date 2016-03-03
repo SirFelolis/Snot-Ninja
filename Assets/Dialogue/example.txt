@@ -1,6 +1,6 @@
 *ring*
 ...
 Who are you?
-Who is <i><color=green>this</color></i>?
+Who is this?
 ...
 *click*
