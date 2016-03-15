@@ -4,11 +4,12 @@ using System.Collections;
 public class GrapplingHookBallBehavior : MonoBehaviour
 {
     private GrapplingHookBehavior _hook;
+    private Rigidbody2D _rb2d;
 
     void Awake()
     {
         _hook = GameObject.FindGameObjectWithTag("Player").GetComponent<GrapplingHookBehavior>();
-        Destroy(gameObject, 0.8f);
+        Destroy(gameObject, 0.5f);
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -20,5 +21,4 @@ public class GrapplingHookBallBehavior : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

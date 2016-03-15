@@ -3,8 +3,16 @@ using System.Collections;
 
 public class Attack : AbstractBehavior
 {
-    public bool attacking;
-    public GameObject attackBox;
+    [SerializeField]
+    private bool attacking;
+    public bool Attacking
+    {
+        get { return attacking; }
+        set { return; }
+    }
+
+    [SerializeField]
+    private GameObject attackBox;
 
     private bool attackingWhileMoving;
 

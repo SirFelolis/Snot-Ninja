@@ -123,7 +123,10 @@ public class GrapplingHookBehavior : AbstractBehavior
     {
         if (_jumpScript.jumpsRemaining < 1)
             _jumpScript.jumpsRemaining++;
-        attached = false;
-        ToggleScripts(true);
+        if (attached)
+        {
+            attached = false;
+            ToggleScripts(true);
+        }
     }
 }

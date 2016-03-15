@@ -17,6 +17,7 @@ public class Walk : AbstractBehavior
     {
         moving = false;
         slowMoving = false;
+        skidding = false;
 
         var right = _inputState.GetButtonValue(inputButtons[0]);
         var left = _inputState.GetButtonValue(inputButtons[1]);
@@ -41,13 +42,9 @@ public class Walk : AbstractBehavior
                 _rb2d.velocity = new Vector2(velX, _rb2d.velocity.y);
             }
 
-            if (!left && !right && _inputState.absVelX > 5) // Skidding
+            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) < 1 && _inputState.absVelX > 5) // Skidding
             {
                 skidding = true;
-            }
-            else
-            {
-                skidding = false;
             }
         }
         else
