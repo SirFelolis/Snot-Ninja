@@ -18,13 +18,7 @@ public class EnemyStun : AbstractEnemyBehavior
     {
         if (other.CompareTag("PlayerAttackTrigger"))
         {
-            if (!_enemyFSM.stateLock)
-            {
-                _enemyFSM.behavior = EnemyBehaviors.Stunned;
-                stunned = true;
-                _enemyFSM.stateLock = true;
-            }
-            _rb2d.velocity = Vector2.zero;
+            rb2d.velocity = Vector2.zero;
         }
     }
 
@@ -40,7 +34,6 @@ public class EnemyStun : AbstractEnemyBehavior
         if (stunTime <= 0 && stunned)
         {
             stunned = false;
-            _enemyFSM.stateLock = false;
             stunTime = defaultStunTime;
         }
     }
