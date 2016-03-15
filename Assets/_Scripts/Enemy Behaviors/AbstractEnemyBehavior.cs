@@ -9,19 +9,20 @@ public abstract class AbstractEnemyBehavior : MonoBehaviour
 {
     public MonoBehaviour[] disableScripts;
 
-    protected GameObject _player;
-    protected Rigidbody2D _rb2d;
-    protected EnemyCollisionState _enemyCollisionState;
-    protected EnemyFSM _enemyFSM;
-
+    protected GameObject player;
+    protected Rigidbody2D rb2d;
+    protected EnemyCollisionState enemyCollisionState;
+    protected LastPlayerSighting lastPlayerSighting;
+    protected EnemyFSM enemyFSM;
     protected Directions directions;
 
     protected virtual void Awake()
     {
-        _player = GameObject.FindWithTag("Player");
-        _rb2d = GetComponent<Rigidbody2D>();
-        _enemyCollisionState = GetComponent<EnemyCollisionState>();
-        _enemyFSM = GameObject.FindObjectOfType<EnemyFSM>();
+        player = GameObject.FindWithTag("Player");
+        rb2d = GetComponent<Rigidbody2D>();
+        enemyCollisionState = GetComponent<EnemyCollisionState>();
+        lastPlayerSighting = GetComponent<LastPlayerSighting>();
+        enemyFSM = GetComponent<EnemyFSM>();
     }
 
     protected virtual void ToggleScripts(bool value)
