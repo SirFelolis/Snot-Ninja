@@ -45,13 +45,13 @@ public class PlayerManager : MonoBehaviour
         // ----ANIMATIONS----
 
         _animator.state.TimeScale = 1;
-        if (_attackBehavior.attacking && !_walk.moving)
+        if (_attackBehavior.Attacking && !_walk.moving)
         {
             ChangeAnimationState("slash_stand", false, 0); // Attacking animation
         }
         else
         {
-            if ((_inputState.absVelX < 2f || _slope.onSlope) && _collisionState.standing && !_crouch.crouching) // Idle animation
+            if ((_inputState.absVelX < 2f || _slope.slidingDownSlope) && _collisionState.standing && !_crouch.crouching) // Idle animation
             {
                 ChangeAnimationState("idle", true, 0);
             }
@@ -70,12 +70,12 @@ public class PlayerManager : MonoBehaviour
                 }
             }
 
-            if (_attackBehavior.attacking && _walk.moving) // Attacking while moving animation
+            if (_attackBehavior.Attacking && _walk.moving) // Attacking while moving animation
             {
                 ChangeAnimationState("slash_run", false, 1);
             }
 
-            if (_walk.skidding && _collisionState.standing && !_slope.onSlope) // Skidding animation
+            if (_walk.skidding && _collisionState.standing && !_slope.slidingDownSlope) // Skidding animation
             {
                 ChangeAnimationState("run_stop", false, 0);
             }
@@ -96,6 +96,7 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+
     void ChangeAnimationState(string animationName, bool loop, int TRACK)
     {
         var state = _animator.state; if (state == null) return;

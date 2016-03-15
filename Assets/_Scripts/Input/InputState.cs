@@ -19,6 +19,7 @@ public enum Directions
 
 public class InputState : MonoBehaviour
 {
+    [SerializeField]
     public Directions direction = Directions.Right;
     public float absVelX = 0.0f;
     public float absVelY = 0.0f;
