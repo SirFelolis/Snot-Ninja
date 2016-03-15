@@ -14,7 +14,8 @@ public class CameraPosition : MonoBehaviour
     public Transform playerVelAnchor;
     public Transform playerConAnchor;
     public Transform enemyPosAnchor;
-    public GameObject playerObject;
+    public Transform MouseAnchor;
+    public Transform ControllerStickAnchor;
     [Range(0.0f, 1.0f)]
     public float smooth;
     [Range(0.0f, 1.0f)]
@@ -48,7 +49,7 @@ public class CameraPosition : MonoBehaviour
         {
             if (camState == CAMERA_STATE.SMART)
             {
-                Vector2 averagePos = (playerPos.position + playerVelAnchor.position + playerConAnchor.position + enemyPosAnchor.position + Camera.main.ScreenToWorldPoint(Input.mousePosition)) / 5;
+                Vector2 averagePos = (playerPos.position + playerVelAnchor.position + playerConAnchor.position + enemyPosAnchor.position + MouseAnchor.position) / 5;
                 cameraPosition = averagePos;
             }
             if (camState == CAMERA_STATE.FIXED)
