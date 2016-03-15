@@ -146,8 +146,8 @@ public class DialogueBoxBehavior : MonoBehaviour
         isActive = true;
         if (!autoScroll)
         {
-            GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>().enabled = false;
-            GameObject.FindGameObjectWithTag("Player").GetComponent<GrapplingHookBehavior>().enabled = false;
+//            GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>().enabled = false;
+//            GameObject.FindGameObjectWithTag("Player").GetComponent<GrapplingHookBehavior>().enabled = false;
         }
 
         StartCoroutine(TextScroll(textLines[lineIndex]));
@@ -159,8 +159,8 @@ public class DialogueBoxBehavior : MonoBehaviour
         textBox.SetActive(false);
         isActive = false;
         cancelPrinting = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>().enabled = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<GrapplingHookBehavior>().enabled = true;
+//        GameObject.FindGameObjectWithTag("Player").GetComponent<Attack>().enabled = true;
+//        GameObject.FindGameObjectWithTag("Player").GetComponent<GrapplingHookBehavior>().enabled = true;
     }
 
     public void ReloadScript(TextAsset textFile)
