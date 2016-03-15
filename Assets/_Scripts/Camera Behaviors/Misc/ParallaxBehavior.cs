@@ -29,13 +29,18 @@ public class ParallaxBehavior : MonoBehaviour
 
     void Update()
     {
+
         for (int i = 0; i < backgrounds.Length; i++) 
         {
             float parallax = (previousCamPos.x - cam.position.x) * parallaxScales[i];
 
             Vector3 backgroundTargetPos = new Vector3(backgrounds[i].position.x + parallax, backgrounds[i].position.y, backgrounds[i].position.z);
 
-            backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, backgroundTargetPos, smooth * Time.deltaTime);
+            if (cam.position.x - backgrounds[i].position.x < 200.0f)
+            {
+                backgrounds[i].position = Vector3.Lerp(backgrounds[i].position, backgroundTargetPos, smooth * Time.deltaTime);
+            }
+
         }
 
         previousCamPos = cam.position;
