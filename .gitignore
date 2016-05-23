@@ -29,3 +29,5 @@ obj/
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.mov
+Assets/Sprites/Enemies/VillagerEnemy/VillagerEnemy_V01.mov.meta

@@ -4,33 +4,43 @@ using System.Collections;
 /** Enemy abstract behavior script
 */
 
-
-public abstract class AbstractEnemyBehavior : MonoBehaviour
+namespace Enemy
 {
-    public MonoBehaviour[] disableScripts;
-
-    protected GameObject player;
-    protected Rigidbody2D rb2d;
-    protected EnemyCollisionState enemyCollisionState;
-    protected LastPlayerSighting lastPlayerSighting;
-    protected EnemyFSM enemyFSM;
-    protected Directions directions;
-
-    protected virtual void Awake()
+    public enum Directions
     {
-        player = GameObject.FindWithTag("Player");
-        rb2d = GetComponent<Rigidbody2D>();
-        enemyCollisionState = GetComponent<EnemyCollisionState>();
-        lastPlayerSighting = GetComponent<LastPlayerSighting>();
-        enemyFSM = GetComponent<EnemyFSM>();
+        Right = 1,
+        Left = -1,
+        None = 0
     }
 
-    protected virtual void ToggleScripts(bool value)
+    public abstract class AbstractEnemyBehavior : MonoBehaviour
     {
-        foreach (var script in disableScripts)
+        public MonoBehaviour[] disableScripts;
+
+        protected GameObject player;
+        protected Rigidbody2D rb2d;
+        protected EnemyCollisionState enemyCollisionState;
+        protected LastPlayerSighting lastPlayerSighting;
+        protected EnemyFSM enemyFSM;
+        protected EnemySight enemySight;
+
+        protected virtual void Awake()
         {
-            script.enabled = value;
+            player = GameObject.FindWithTag("Player");
+            rb2d = GetComponent<Rigidbody2D>();
+            enemyCollisionState = GetComponent<EnemyCollisionState>();
+            lastPlayerSighting = GetComponent<LastPlayerSighting>();
+            enemyFSM = GetComponent<EnemyFSM>();
+            enemySight = GetComponentInChildren<EnemySight>();
         }
-    }
 
+        protected virtual void ToggleScripts(bool value)
+        {
+            foreach (var script in disableScripts)
+            {
+                script.enabled = value;
+            }
+        }
+
+    }
 }

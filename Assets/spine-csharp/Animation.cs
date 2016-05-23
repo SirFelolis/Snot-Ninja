@@ -58,7 +58,7 @@ namespace Spine {
 
 			if (loop && duration != 0) {
 				time %= duration;
-				lastTime %= duration;
+				if (lastTime > 0) lastTime %= duration;
 			}
 
 			ExposedList<Timeline> timelines = this.timelines;
@@ -75,7 +75,7 @@ namespace Spine {
 
 			if (loop && duration != 0) {
 				time %= duration;
-				lastTime %= duration;
+				if (lastTime > 0) lastTime %= duration;
 			}
 
 			ExposedList<Timeline> timelines = this.timelines;
@@ -448,11 +448,13 @@ namespace Spine {
 				lastTime = -1;
 
 			int frameIndex = (time >= frames[frames.Length - 1] ? frames.Length : Animation.binarySearch(frames, time)) - 1;
-			if (frames[frameIndex] < lastTime) return;
+//			if (frames[frameIndex] < lastTime) return;
+            const float alphaThreshold = 0.5f; // don't set the attachment below 0.5 alpha.
+            if (alpha < alphaThreshold) return;
 
-			String attachmentName = attachmentNames[frameIndex];
+            String attachmentName = attachmentNames[frameIndex];
 			skeleton.slots.Items[slotIndex].Attachment =
-				 attachmentName == null ? null : skeleton.GetAttachment(slotIndex, attachmentName);
+				attachmentName == null ? null : skeleton.GetAttachment(slotIndex, attachmentName);
 		}
 	}
 
@@ -470,8 +472,8 @@ namespace Spine {
 		}
 
 		/// <summary>Sets the time and value of the specified keyframe.</summary>
-		public void SetFrame (int frameIndex, float time, Event e) {
-			frames[frameIndex] = time;
+		public void SetFrame (int frameIndex, Event e) {
+			frames[frameIndex] = e.Time;
 			events[frameIndex] = e;
 		}
 
@@ -582,11 +584,14 @@ namespace Spine {
 			int vertexCount = frameVertices[0].Length;
 
 			float[] vertices = slot.attachmentVertices;
+
+			// Don't mix from uninitialized slot vertices.
+			if (slot.attachmentVerticesCount == 0 || vertices.Length != vertexCount) alpha = 1; 
+
 			if (vertices.Length < vertexCount) {
 				vertices = new float[vertexCount];
 				slot.attachmentVertices = vertices;
 			}
-			if (vertices.Length != vertexCount) alpha = 1; // Don't mix from uninitialized slot vertices.
 			slot.attachmentVerticesCount = vertexCount;
 
 			if (time >= frames[frames.Length - 1]) { // Time is after last frame.
@@ -672,54 +677,6 @@ namespace Spine {
 			float mix = prevFrameMix + (frames[frameIndex + FRAME_MIX] - prevFrameMix) * percent;
 			ikConstraint.mix += (mix - ikConstraint.mix) * alpha;
 			ikConstraint.bendDirection = (int)frames[frameIndex + PREV_FRAME_BEND_DIRECTION];
-		}
-	}
-
-	public class FlipXTimeline : Timeline {
-		internal int boneIndex;
-		internal float[] frames;
-
-		public int BoneIndex { get { return boneIndex; } set { boneIndex = value; } }
-		public float[] Frames { get { return frames; } set { frames = value; } } // time, flip, ...
-		public int FrameCount { get { return frames.Length >> 1; } }
-
-		public FlipXTimeline (int frameCount) {
-			frames = new float[frameCount << 1];
-		}
-
-		/// <summary>Sets the time and value of the specified keyframe.</summary>
-		public void SetFrame (int frameIndex, float time, bool flip) {
-			frameIndex *= 2;
-			frames[frameIndex] = time;
-			frames[frameIndex + 1] = flip ? 1 : 0;
-		}
-
-		public void Apply (Skeleton skeleton, float lastTime, float time, ExposedList<Event> firedEvents, float alpha) {
-			float[] frames = this.frames;
-			if (time < frames[0]) {
-				if (lastTime > time) Apply(skeleton, lastTime, int.MaxValue, null, 0);
-				return;
-			} else if (lastTime > time) //
-				lastTime = -1;
-
-			int frameIndex = (time >= frames[frames.Length - 2] ? frames.Length : Animation.binarySearch(frames, time, 2)) - 2;
-			if (frames[frameIndex] < lastTime) return;
-
-			SetFlip(skeleton.bones.Items[boneIndex], frames[frameIndex + 1] != 0);
-		}
-
-		virtual protected void SetFlip (Bone bone, bool flip) {
-			bone.flipX = flip;
-		}
-	}
-
-	public class FlipYTimeline : FlipXTimeline {
-		public FlipYTimeline (int frameCount)
-			: base(frameCount) {
-		}
-
-		override protected void SetFlip (Bone bone, bool flip) {
-			bone.flipY = flip;
 		}
 	}
 }

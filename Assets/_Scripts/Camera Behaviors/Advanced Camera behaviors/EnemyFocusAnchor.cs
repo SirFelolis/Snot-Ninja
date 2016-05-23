@@ -12,17 +12,8 @@ public class EnemyFocusAnchor : MonoBehaviour
 
     void FixedUpdate()
     {
-
         if (player == null)
             return;
-
-        if (Vector3.Distance(FindClosestObject("Enemy").transform.position, player.transform.position) < focusRadius)
-        {
-            enemyPos = FindClosestObject("Enemy").transform.position;
-            focus = true;
-        }
-        else
-            focus = false;
 
         var pos = transform.position;
         if (focus)
@@ -32,11 +23,22 @@ public class EnemyFocusAnchor : MonoBehaviour
         }
         else
         {
-            pos.x = Mathf.Lerp(pos.x, player.transform.position.x, smooth * 5);
-            pos.y = Mathf.Lerp(pos.y, player.transform.position.y, smooth * 5);
+            pos.x = Mathf.Lerp(pos.x, player.transform.position.x, smooth * 10);
+            pos.y = Mathf.Lerp(pos.y, player.transform.position.y, smooth * 10);
         }
-
         transform.position = pos;
+
+
+        if (GameObject.FindGameObjectWithTag("Enemy") == null)
+            return;
+
+        if (Vector3.Distance(FindClosestObject("Enemy").transform.position, player.transform.position) < focusRadius)
+        {
+            enemyPos = FindClosestObject("Enemy").transform.position;
+            focus = true;
+        }
+        else
+            focus = false;
     }
 
     GameObject FindClosestObject(string tag)

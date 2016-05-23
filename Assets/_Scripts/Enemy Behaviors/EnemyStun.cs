@@ -1,41 +1,44 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyStun : AbstractEnemyBehavior
+namespace Enemy
 {
-    public float stunTime = 2.0f;
-    public bool stunned;
-
-    private float defaultStunTime;
-
-    protected override void Awake()
+    public class EnemyStun : AbstractEnemyBehavior
     {
-        base.Awake();
-        defaultStunTime = stunTime;
-    }
+        public float stunTime = 2.0f;
+        public bool stunned;
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("PlayerAttackTrigger"))
+        private float defaultStunTime;
+
+        protected override void Awake()
         {
-            rb2d.velocity = Vector2.zero;
-        }
-    }
-
-    void FixedUpdate()
-    {
-        ToggleScripts(true);
-        if (stunned)
-        {
-            ToggleScripts(false);
-            stunTime -= Time.deltaTime;
+            base.Awake();
+            defaultStunTime = stunTime;
         }
 
-        if (stunTime <= 0 && stunned)
+        void OnTriggerEnter2D(Collider2D other)
         {
-            stunned = false;
-            stunTime = defaultStunTime;
+            if (other.CompareTag("PlayerAttackTrigger"))
+            {
+                rb2d.velocity = Vector2.zero;
+            }
         }
-    }
 
+        void FixedUpdate()
+        {
+            ToggleScripts(true);
+            if (stunned)
+            {
+                ToggleScripts(false);
+                stunTime -= Time.deltaTime;
+            }
+
+            if (stunTime <= 0 && stunned)
+            {
+                stunned = false;
+                stunTime = defaultStunTime;
+            }
+        }
+
+    }
 }

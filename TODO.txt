@@ -1,0 +1,1 @@
+Put the EnemySight.cs script on the actual villager instead of the vision cone

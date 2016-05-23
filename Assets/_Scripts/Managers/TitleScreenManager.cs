@@ -6,9 +6,9 @@ public class TitleScreenManager : MonoBehaviour
 {
     public string firstLevel;
     public string savedLevel;
-    public string optionsMenu;
-    public string mainMenu;
-    public string lastMenu;
+
+    [SerializeField]
+    private MainMenuCamera mainMenuCamera;
 
     public void StartGameNew() // Starts a new game
     {
@@ -20,18 +20,18 @@ public class TitleScreenManager : MonoBehaviour
         SceneManager.LoadScene(savedLevel);
     }
 
+    public void SettingsMenu() // Changes to settings menu
+    {
+        mainMenuCamera.TargetName = "Settings";
+    }
+
+    public void MainMenu() // Changes to main menu
+    {
+        mainMenuCamera.TargetName = "Main";
+    }
+
     public void ExitGame() // Exits the game
     {
         Application.Quit();
-    }
-
-    public void Options() // Go to the options menu
-    {
-        SceneManager.LoadScene(optionsMenu);
-    }
-
-    public void Return() // Returns back to the main menu (probably from the options)
-    {
-        SceneManager.LoadScene(lastMenu);
     }
 }

@@ -3,30 +3,33 @@
 /** Player abstract behavior script
 */
 
-public abstract class AbstractBehavior : MonoBehaviour
+namespace Player
 {
-    public Buttons[] inputButtons;
-    public MonoBehaviour[] disableScripts;
-
-    protected InputState _inputState;
-    protected Rigidbody2D _rb2d;
-    protected CollisionState _collisionState;
-    protected CircleCollider2D _collider;
-
-
-
-    protected virtual void Awake()
+    public abstract class AbstractBehavior : MonoBehaviour
     {
-        _inputState = GetComponent<InputState>();
-        _rb2d = GetComponent<Rigidbody2D>();
-        _collisionState = GetComponent<CollisionState>();
-    }
+        public Buttons[] inputButtons;
+        public MonoBehaviour[] disableScripts;
 
-    protected virtual void ToggleScripts(bool value)
-    {
-        foreach(var script in disableScripts)
+        protected InputState _inputState;
+        protected Rigidbody2D _rb2d;
+        protected CollisionState _collisionState;
+        protected CircleCollider2D _collider;
+
+
+
+        protected virtual void Awake()
         {
-            script.enabled = value;
+            _inputState = GetComponent<InputState>();
+            _rb2d = GetComponent<Rigidbody2D>();
+            _collisionState = GetComponent<CollisionState>();
+        }
+
+        protected virtual void ToggleScripts(bool value)
+        {
+            foreach (var script in disableScripts)
+            {
+                script.enabled = value;
+            }
         }
     }
 }

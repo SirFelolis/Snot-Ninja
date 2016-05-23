@@ -1,0 +1,188 @@
+
+VillagerEnemy.png
+size: 2048,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+body
+  rotate: false
+  xy: 179, 8
+  size: 175, 118
+  orig: 200, 150
+  offset: 14, 17
+  index: -1
+body2
+  rotate: false
+  xy: 2, 6
+  size: 175, 120
+  orig: 450, 384
+  offset: 83, 202
+  index: -1
+brow1
+  rotate: false
+  xy: 1733, 62
+  size: 31, 20
+  orig: 34, 25
+  offset: 2, 0
+  index: -1
+eye1
+  rotate: false
+  xy: 1676, 22
+  size: 22, 22
+  orig: 25, 25
+  offset: 1, 2
+  index: -1
+face1
+  rotate: false
+  xy: 1397, 40
+  size: 103, 86
+  orig: 150, 102
+  offset: 19, 2
+  index: -1
+farmL
+  rotate: true
+  xy: 1172, 40
+  size: 86, 113
+  orig: 100, 150
+  offset: 3, 20
+  index: -1
+farmR
+  rotate: false
+  xy: 917, 23
+  size: 122, 103
+  orig: 150, 110
+  offset: 13, 2
+  index: -1
+footL
+  rotate: false
+  xy: 1935, 91
+  size: 97, 35
+  orig: 125, 75
+  offset: 18, 19
+  index: -1
+footR
+  rotate: true
+  xy: 448, 2
+  size: 62, 49
+  orig: 75, 75
+  offset: 6, 11
+  index: -1
+handL
+  rotate: false
+  xy: 575, 2
+  size: 40, 70
+  orig: 100, 100
+  offset: 31, 15
+  index: -1
+handL2
+  rotate: true
+  xy: 1618, 22
+  size: 55, 56
+  orig: 100, 100
+  offset: 20, 26
+  index: -1
+handR
+  rotate: false
+  xy: 617, 5
+  size: 64, 67
+  orig: 75, 100
+  offset: 4, 19
+  index: -1
+hatB
+  rotate: false
+  xy: 565, 74
+  size: 209, 52
+  orig: 250, 100
+  offset: 30, 30
+  index: -1
+hatF
+  rotate: false
+  xy: 356, 66
+  size: 207, 60
+  orig: 250, 75
+  offset: 30, 5
+  index: -1
+knot
+  rotate: false
+  xy: 1676, 46
+  size: 55, 31
+  orig: 58, 31
+  offset: 0, 0
+  index: -1
+mouth
+  rotate: true
+  xy: 683, 15
+  size: 57, 72
+  orig: 75, 100
+  offset: 14, 14
+  index: -1
+neck
+  rotate: false
+  xy: 499, 5
+  size: 74, 59
+  orig: 100, 100
+  offset: 13, 22
+  index: -1
+pupil
+  rotate: true
+  xy: 2034, 116
+  size: 10, 12
+  orig: 25, 25
+  offset: 7, 6
+  index: -1
+scythe
+  rotate: false
+  xy: 776, 16
+  size: 139, 110
+  orig: 175, 150
+  offset: 10, 18
+  index: -1
+shinL
+  rotate: true
+  xy: 1733, 84
+  size: 42, 102
+  orig: 50, 150
+  offset: 5, 28
+  index: -1
+shinR
+  rotate: true
+  xy: 356, 2
+  size: 62, 90
+  orig: 100, 150
+  offset: 16, 37
+  index: -1
+thighL
+  rotate: false
+  xy: 1287, 40
+  size: 108, 86
+  orig: 125, 100
+  offset: 7, 4
+  index: -1
+thighR
+  rotate: true
+  xy: 1502, 53
+  size: 73, 114
+  orig: 100, 150
+  offset: 15, 23
+  index: -1
+uparmL
+  rotate: true
+  xy: 1837, 80
+  size: 46, 96
+  orig: 100, 150
+  offset: 33, 35
+  index: -1
+uparmR
+  rotate: true
+  xy: 1618, 79
+  size: 47, 113
+  orig: 51, 118
+  offset: 1, 3
+  index: -1
+waist
+  rotate: false
+  xy: 1041, 40
+  size: 129, 86
+  orig: 150, 150
+  offset: 9, 39
+  index: -1

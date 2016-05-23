@@ -5,71 +5,74 @@ using System.Collections.Generic;
 /** Player input state script
 */
 
-public class ButtonState
+namespace Player
 {
-    public bool value;
-    public float holdTime = 0;
-}
-
-public enum Directions
-{
-    Right = 1,
-    Left = -1
-}
-
-public class InputState : MonoBehaviour
-{
-    [SerializeField]
-    public Directions direction = Directions.Right;
-    public float absVelX = 0.0f;
-    public float absVelY = 0.0f;
-
-    private Rigidbody2D _rb2d;
-    private Dictionary<Buttons, ButtonState> buttonStates = new Dictionary<Buttons, ButtonState>();
-
-    void Awake()
+    public class ButtonState
     {
-        _rb2d = GetComponent<Rigidbody2D>();
+        public bool value;
+        public float holdTime = 0;
     }
 
-    void FixedUpdate()
+    public enum Directions
     {
-        absVelX = Mathf.Abs(_rb2d.velocity.x);
-        absVelY = Mathf.Abs(_rb2d.velocity.y);
+        Right = 1,
+        Left = -1
     }
 
-    public void SetButtonValue(Buttons key, bool value)
+    public class InputState : MonoBehaviour
     {
-        if (!buttonStates.ContainsKey(key))
-            buttonStates.Add(key, new ButtonState());
+        [SerializeField]
+        public Directions direction = Directions.Left;
+        public float absVelX = 0.0f;
+        public float absVelY = 0.0f;
 
-        var state = buttonStates[key];
+        private Rigidbody2D rb2d;
+        private Dictionary<Buttons, ButtonState> buttonStates = new Dictionary<Buttons, ButtonState>();
 
-        if(state.value && !value)
+        void Awake()
         {
-            state.holdTime = 0;
-        }
-        else if(state.value && value)
-        {
-            state.holdTime += Time.deltaTime;
+            rb2d = GetComponent<Rigidbody2D>();
         }
 
-        state.value = value;
-    }
+        void FixedUpdate()
+        {
+            absVelX = Mathf.Abs(rb2d.velocity.x);
+            absVelY = Mathf.Abs(rb2d.velocity.y);
+        }
 
-    public bool GetButtonValue(Buttons key)
-    {
-        if (buttonStates.ContainsKey(key))
-            return buttonStates[key].value;
-        else
-            return false;
-    }
+        public void SetButtonValue(Buttons key, bool value)
+        {
+            if (!buttonStates.ContainsKey(key))
+                buttonStates.Add(key, new ButtonState());
 
-    public float GetButtonHoldTime(Buttons key)
-    {
-        if (buttonStates.ContainsKey(key))
-            return buttonStates[key].holdTime;
-        else
-            return 0;
+            var state = buttonStates[key];
+
+            if (state.value && !value)
+            {
+                state.holdTime = 0;
+            }
+            else if (state.value && value)
+            {
+                state.holdTime += Time.deltaTime;
+            }
+
+            state.value = value;
+        }
+
+        public bool GetButtonValue(Buttons key)
+        {
+            if (buttonStates.ContainsKey(key))
+                return buttonStates[key].value;
+            else
+                return false;
+        }
+
+        public float GetButtonHoldTime(Buttons key)
+        {
+            if (buttonStates.ContainsKey(key))
+                return buttonStates[key].holdTime;
+            else
+                return 0;
+        }
     }
 }

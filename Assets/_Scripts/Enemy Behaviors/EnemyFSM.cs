@@ -12,20 +12,20 @@ public class EnemyFSM : MonoBehaviour
 {
     public States states;
 
-    private EnemyPlayerDetection enemyPlayerDetection;
+    private EnemySight enemyPlayerDetection;
 
     [SerializeField]
     private SpriteRenderer rend;
 
     void Awake()
     {
-        enemyPlayerDetection = GetComponentInChildren<EnemyPlayerDetection>();
+        enemyPlayerDetection = GetComponentInChildren<EnemySight>();
     }
 
     void FixedUpdate()
     {
 
-        if (enemyPlayerDetection.Vision)
+        if (enemyPlayerDetection.PlayerInSight)
         {
             states = States.Alert;
         }

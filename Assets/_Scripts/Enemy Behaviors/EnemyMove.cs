@@ -2,99 +2,127 @@
 using System.Collections;
 
 /** Enemy move script
+* WARNING: Possibly the most confusing piece of coding I've ever worked on. (Oliver)
+*
+* I leave this here as a warning to anyone or even myself in the future, that this code is incredibly confusing. (Oliver)
 */
-
-public class EnemyMove : AbstractEnemyBehavior
+namespace Enemy
 {
-    public float speed = 50.0f;                                                                                                                                 // For patrolling
-    public float runningSpeed = 60.0f;                                                                                                                          // For running
-    public bool walking;
-    public bool running;
-    public float acc = 1.0f;
-
-    public LayerMask canSee;
-
-    private float defaultSpeed;
-
-    private float dir = 0.0f;
-    private float dirLast = 0.0f;
-
-
-    protected override void Awake()
+    public class EnemyMove : AbstractEnemyBehavior
     {
-        base.Awake();
+        private float speed = 50.0f;
+        public float Speed
+        {
+            get { return speed; }
+            set { return; }
+        }
 
-        defaultSpeed = speed;
+        [SerializeField]
+        private float jumpSpeed = 10;
 
-        directions = Random.Range(0, 9) >= 4 ? Directions.Left : Directions.Right;
+        private float maxSpeed;
+        public float MaxSpeed
+        {
+            get { return maxSpeed; }
+            set { maxSpeed = value; }
+        }
 
-    }
+        private float defaultSpeed;
 
-    void FixedUpdate()
-    {
-        walking = false;
-        running = false;
+        private float dir = 0.0f;
+        private float dirLast = 0.0f;
 
-        if (speed < defaultSpeed)
-            speed += acc;
-        else if (speed > defaultSpeed)
-            speed = defaultSpeed;
+        private int state;
+        public int State
+        {
+            get { return state; }
+            set { state = value; }
+        }
 
-        dir = (int)directions;
-        if (dir != dirLast)
+        [SerializeField]
+        private Directions directions;
+
+        private bool waiting;
+
+        void FixedUpdate()
+        {
+            if (!waiting)
+            {
+                if (speed < maxSpeed)
+                    speed = Mathf.Lerp(speed, maxSpeed, 0.1f);
+                else if (speed > maxSpeed)
+                    speed = maxSpeed;
+            }
+
+            dir = (int)directions;
+            if (dir != dirLast)
+            {
+                speed = 0;
+                dirLast = (int)directions;
+            }
+
+            switch (state)
+            {
+                case 0: // Chase state
+                    rb2d.velocity = new Vector2((int)directions * speed, rb2d.velocity.y);
+
+                    if (CheckPath(enemyCollisionState.GroundCollider))
+                    {
+                        OnJump();
+                    }
+                    break;
+
+                case 1: // Patrol state
+                    rb2d.velocity = new Vector2((int)directions * speed, rb2d.velocity.y);
+                    if (CheckPath(enemyCollisionState.GroundCollider) && !waiting) // Weird, there's no layer called "Collider" but this works anyway
+                    {
+                        StartCoroutine(WaitAndTurn());
+                        waiting = true;
+                    }
+                    else if ((!CheckPath(enemyCollisionState.GroundCollider) && !CheckPath(enemyCollisionState.EdgeCollider)) && !waiting)
+                    {
+                        StartCoroutine(WaitAndTurn());
+                        waiting = true;
+                    }
+                    break;
+                default:
+                    rb2d.velocity = new Vector2();
+                    break;
+            }
+            transform.localScale = new Vector3(dir, 1, 1);
+        }
+
+        void OnJump()
+        {
+            if (enemyCollisionState.standing)
+            {
+                var vel = rb2d.velocity;
+                rb2d.velocity = new Vector2(vel.x, jumpSpeed);
+            }
+        }
+
+        bool CheckPath(BoxCollider2D box)
+        {
+            return box.IsTouchingLayers(LayerMask.NameToLayer("Collider"));
+        }
+
+        void Turn()
+        {
+            directions = directions == Directions.Right ? Directions.Left : Directions.Right;
+        }
+
+        public void Stop()
         {
             speed = 0;
-            dirLast = (int)directions;
         }
 
-        Vector2 target = new Vector2();
-        if (player.gameObject != null)
+        IEnumerator WaitAndTurn()
         {
-            target = ((player.transform.position - transform.position).normalized);
+            Stop();
+            yield return new WaitForSeconds(Random.Range(0.5f, 1.5f));
+            Turn();
+            yield return new WaitForSeconds(0.1f);
+            waiting = false;
         }
-
-        switch (enemyFSM.states)
-        {
-            case States.Alert:                                                                                                                                  // Alert state
-                running = true;
-                speed = runningSpeed;
-                directions = target.x < 0 ? Directions.Left : Directions.Right;
-                rb2d.velocity = new Vector2((float)directions * speed, rb2d.velocity.y);
-                break;
-
-            case States.Caution:                                                                                                                                 // Patrol state
-                running = true;
-                speed = runningSpeed;
-                rb2d.velocity = new Vector2((float)directions * speed, rb2d.velocity.y);
-                if (CheckPath())
-                    Turn();
-                break;
-
-            case States.Patrol:                                                                                                                                 // Patrol state
-                walking = true;
-                rb2d.velocity = new Vector2((float)directions * speed, rb2d.velocity.y);
-                if (CheckPath())
-                    Turn();
-                break;
-
-        }
-        transform.localScale = new Vector3((int)directions, 1, 1);
-    }
-
-    bool CheckPath()                                                                                                                                            // Does a raycast to check for walls or ledges
-    {
-        RaycastHit2D hit1 = Physics2D.Raycast(transform.position, new Vector2(11.0f * (float)directions, -9f), 22.0f, enemyCollisionState.collisionLayer);      // Look for an edge
-        RaycastHit2D hit2 = Physics2D.Raycast(transform.position, new Vector2(12.0f * (float)directions, -5.0f), 12.0f, enemyCollisionState.collisionLayer);    // Look for a wall
-        RaycastHit2D hit3 = Physics2D.Raycast(transform.position, new Vector2(12.0f * (float)directions, 0), 12.0f, canSee);                                    // Look for another enemy
-        if (hit1.collider == null || hit2.collider != null || hit3.collider != null)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    void Turn()                                                                                                                                                 // Turn the player around
-    {
-        directions = directions == Directions.Right ? Directions.Left : Directions.Right;
     }
 }

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: eda32b10131301c48937f6197299ff2b
-timeCreated: 1457743523
+timeCreated: 1460241392
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -69,19 +69,21 @@ TextureImporter:
         serializedVersion: 2
         x: 817
         y: 4
-        width: 53
-        height: 50
+        width: 61
+        height: 52
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline:
-      - - {x: -9.5, y: 25}
-        - {x: -26.5, y: 14}
-        - {x: -26.5, y: -4}
-        - {x: -23.5, y: -11}
-        - {x: 13.5, y: -25}
-        - {x: 26.5, y: -25}
-        - {x: 26.5, y: 25}
+      - - {x: -9.5, y: 26}
+        - {x: -30.5, y: 10}
+        - {x: -30.5, y: -3}
+        - {x: -25.5, y: -9}
+        - {x: -10.5, y: -19}
+        - {x: 10.5, y: -26}
+        - {x: 29.5, y: -26}
+        - {x: 30.5, y: -22}
+        - {x: 30.5, y: 26}
     - name: hook_line
       rect:
         serializedVersion: 2

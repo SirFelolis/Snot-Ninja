@@ -4,129 +4,143 @@ using System.Collections;
 /** Grappling hook script
 */
 
-public class GrapplingHookBehavior : AbstractBehavior
+namespace Player
 {
-    public LayerMask whatIsGround;
-
-    public bool canGrapple;
-    public bool shooting;
-    public bool aiming;
-    public float ballSpeed;
-
-    public float timesShot = 0;
-    public float hookLimit = 2;
-
-    public float coolDown = 0.5f;
-    private float time;
-
-    public GameObject ball;
-    public GameObject ballHit;
-    public GameObject hookLine;
-
-    private Jump _jumpScript;
-
-    [HideInInspector]
-    public bool attached = false;
-    [HideInInspector]
-    public Vector2 attachedPoint = new Vector2();
-
-    private Transform _nose;
-
-    protected override void Awake()
+    public class GrapplingHookBehavior : AbstractBehavior
     {
-        base.Awake();
+        public LayerMask whatIsGround;
 
-        _jumpScript = GameObject.FindGameObjectWithTag("Player").GetComponent<Jump>();
-        _nose = GameObject.Find("Nose").transform;
-    }
+        public bool canGrapple;
+        public bool shooting;
+        public bool aiming;
+        public float ballSpeed;
 
-    void FixedUpdate()
-    {
-        if (time <= 0)
+        public float timesShot = 0;
+        public float hookLimit = 2;
+
+        public float coolDown = 0.5f;
+        private float time;
+
+        public GameObject ball;
+        public GameObject ballHit;
+        public GameObject hookLine;
+
+        private Jump jumpBehavior;
+
+        [HideInInspector]
+        public bool attached = false;
+        [HideInInspector]
+        public Vector2 attachedPoint = new Vector2();
+
+        private Transform nose;
+
+        protected override void Awake()
         {
-            canGrapple = true;
-        }
-        else
-        {
-            time -= Time.deltaTime;
-            canGrapple = false;
-        }
-    }
+            base.Awake();
 
-	void Update()
-	{
-//        var shootHook = _inputState.GetButtonValue(inputButtons[0]);
-        var shootHook = Input.GetMouseButtonDown(1);
-//        var holdTime = _inputState.GetButtonHoldTime(inputButtons[0]);
-
-        if (shootHook && !attached && canGrapple && !_collisionState.standing && timesShot < hookLimit)
-        {
-            OnShootHook();
-            shooting = true;
-            time = coolDown;
-        }
-
-        if (attached && shooting)
-        {
-            timesShot++;
-            shooting = false;
-            OnGrapplingHookAttach();
+            jumpBehavior = GameObject.FindGameObjectWithTag("Player").GetComponent<Jump>();
+            nose = GameObject.Find("Nose").transform;
         }
 
-        if (attached && !_collisionState.standing && !_collisionState.onWall)
+        void FixedUpdate()
         {
-            Attached();
+            if (time <= 0)
+            {
+                canGrapple = true;
+            }
+            else
+            {
+                time -= Time.deltaTime;
+                canGrapple = false;
+            }
         }
 
-        if ((!Input.GetMouseButton(1) || _collisionState.onWall || _collisionState.onCeil) && attached)
+        void Update()
         {
-            OnGrapplingHookDetach();
+            //        var shootHook = _inputState.GetButtonValue(inputButtons[0]);
+            var shootHook = Input.GetMouseButtonDown(1);
+            var jump = _inputState.GetButtonValue(inputButtons[0]);
+            //        var holdTime = _inputState.GetButtonHoldTime(inputButtons[0]);
+
+            if (shootHook && canGrapple)
+            {
+                if (attached)
+                {
+                    OnGrapplingHookDetach();
+                    return;
+                }
+
+                if (timesShot > hookLimit)
+                    return;
+
+
+                OnShootHook();
+                shooting = true;
+                time = coolDown;
+            }
+
+            if (attached && shooting)
+            {
+                timesShot++;
+                shooting = false;
+                OnGrapplingHookAttach();
+            }
+
+            if (attached)
+            {
+                Attached();
+            }
+
+            if (jump && attached)
+            {
+                OnGrapplingHookDetach();
+            }
+
+            if (_collisionState.standing)
+            {
+                timesShot = 0;
+            }
         }
 
-        if (_collisionState.standing)
+        void OnShootHook()
         {
-            timesShot = 0;
-            OnGrapplingHookDetach();
+            var worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            var direction = (worldMousePosition - transform.position).normalized;
+
+            GameObject obj = (GameObject)Instantiate(ball, nose.position, transform.rotation); // Ball
+            obj.GetComponent<Rigidbody2D>().velocity = direction * ballSpeed;
         }
-    }
 
-    void OnShootHook()
-    {
-        var worldMousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var direction = (worldMousePosition - transform.position).normalized;
-
-        GameObject obj = (GameObject)Instantiate(ball, _nose.position, transform.rotation); // Ball
-        obj.GetComponent<Rigidbody2D>().velocity = direction * ballSpeed;
-    }
-
-    void OnGrapplingHookAttach() // Attach grappling hook
-    {
-        Instantiate(ballHit, attachedPoint, transform.rotation);
-        Instantiate(hookLine,
-            attachedPoint,
-            Quaternion.AngleAxis(
-                Mathf.Atan2(
-                    (_nose.position - (Vector3)attachedPoint).y,
-                    (_nose.position - (Vector3)attachedPoint).x) * Mathf.Rad2Deg,
-                    Vector3.forward)); // Line
-
-        attached = true;
-        ToggleScripts(false);
-    }
-
-    void Attached()
-    {
-        _rb2d.velocity = ((Vector3)attachedPoint - transform.position).normalized * 300;
-    }
-
-    void OnGrapplingHookDetach() // Detach grappling hook
-    {
-        if (_jumpScript.jumpsRemaining < 1)
-            _jumpScript.jumpsRemaining++;
-        if (attached)
+        void OnGrapplingHookAttach() // Attach grappling hook
         {
-            attached = false;
-            ToggleScripts(true);
+            Instantiate(ballHit, attachedPoint, transform.rotation);
+            Instantiate(hookLine,
+                attachedPoint,
+                Quaternion.AngleAxis(
+                    Mathf.Atan2(
+                        (nose.position - (Vector3)attachedPoint).y,
+                        (nose.position - (Vector3)attachedPoint).x) * Mathf.Rad2Deg,
+                        Vector3.forward)); // Line
+
+            attached = true;
+            ToggleScripts(false);
+        }
+
+        void Attached()
+        {
+            Vector2 targetVel = ((Vector3)attachedPoint - transform.position).normalized * 370;
+            _rb2d.velocity += (targetVel - _rb2d.velocity) * 0.25f;
+        }
+
+        void OnGrapplingHookDetach() // Detach grappling hook
+        {
+            if (jumpBehavior.jumpsRemaining < 1)
+                jumpBehavior.jumpsRemaining++;
+            if (attached)
+            {
+                attached = false;
+                ToggleScripts(true);
+            }
         }
     }
 }

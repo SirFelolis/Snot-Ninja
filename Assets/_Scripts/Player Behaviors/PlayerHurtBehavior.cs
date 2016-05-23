@@ -1,49 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHurtBehavior : AbstractBehavior
+namespace Player
 {
-    public bool stunned = false;
-    public bool getUp = false;
-
-    public float stunTime;
-
-    private float time;
-
-    void OnTriggerEnter2D(Collider2D other)
+    public class PlayerHurtBehavior : AbstractBehavior
     {
-        if (other.CompareTag("Enemy"))
-        {
-            _rb2d.velocity = new Vector2(150 * (int)_inputState.direction, 100);
-            stunned = true;
-        }
-    }
+        public bool stunned = false;
+        public bool getUp = false;
 
-    void FixedUpdate()
-    {
-        if (stunned && time < stunTime)
+        public float stunTime;
+
+        private float time;
+
+        void OnTriggerEnter2D(Collider2D other)
         {
-            if (time >= stunTime / 10)
+            if (other.CompareTag("Enemy"))
             {
-                getUp = true;
+                _rb2d.velocity = new Vector2(150 * (int)_inputState.direction, 100);
+                stunned = true;
             }
-            time += Time.deltaTime;
-        }
-        else
-        {
-            time = 0;
-            stunned = false;
-            getUp = false;
         }
 
-        if (stunned)
+        void FixedUpdate()
         {
-            ToggleScripts(false);
+            if (stunned && time < stunTime)
+            {
+                if (time >= stunTime / 10)
+                {
+                    getUp = true;
+                }
+                time += Time.deltaTime;
+            }
+            else
+            {
+                time = 0;
+                stunned = false;
+                getUp = false;
+            }
+
+            if (stunned)
+            {
+                ToggleScripts(false);
+            }
+            else
+            {
+                ToggleScripts(true);
+            }
         }
-        else
-        {
-            ToggleScripts(true);
-        }
+
     }
-
 }

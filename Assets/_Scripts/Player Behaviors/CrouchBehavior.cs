@@ -1,23 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CrouchBehavior : AbstractBehavior
+namespace Player
 {
-    public bool crouching;
-
-	void Update ()
+    public class CrouchBehavior : AbstractBehavior
     {
-        var crouch = _inputState.GetButtonValue(inputButtons[0]);
-        if (crouch && _collisionState.standing && _inputState.absVelX < 5)
+        public bool crouching;
+
+        void Update()
         {
-            _rb2d.velocity = Vector2.zero;
-            crouching = true;
-            ToggleScripts(false);
-        }
-        else if (crouching)
-        {
-            crouching = false;
-            ToggleScripts(true);
+            var crouch = _inputState.GetButtonValue(inputButtons[0]);
+            if (crouch && _collisionState.standing && _inputState.absVelX < 5)
+            {
+                _rb2d.velocity = Vector2.zero;
+                crouching = true;
+                ToggleScripts(false);
+            }
+            else if (crouching)
+            {
+                crouching = false;
+                ToggleScripts(true);
+            }
         }
     }
 }

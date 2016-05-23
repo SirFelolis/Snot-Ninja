@@ -4,22 +4,25 @@ using System.Collections;
 /** Player drag behavior script
 */
 
-public class DragBehaviour : AbstractBehavior
+namespace Player
 {
-    public float dragInAir = 0.0f;
-
-    private float defaultDrag;
-
-    void Start()
+    public class DragBehaviour : AbstractBehavior
     {
-        defaultDrag = _rb2d.drag;
-    }
+        public float dragInAir = 0.0f;
 
-    void Update()
-    {
-        if (!_collisionState.standing)
-            _rb2d.drag = dragInAir;
-        else
-            _rb2d.drag = defaultDrag;
+        private float defaultDrag;
+
+        void Start()
+        {
+            defaultDrag = _rb2d.drag;
+        }
+
+        void Update()
+        {
+            if (!_collisionState.standing)
+                _rb2d.drag = dragInAir;
+            else
+                _rb2d.drag = defaultDrag;
+        }
     }
 }

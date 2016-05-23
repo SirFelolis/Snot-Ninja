@@ -2,18 +2,20 @@
 
 /** Player fast fall script
 */
-
-public class FastFall : AbstractBehavior
+namespace Player
 {
-    public float pullSpeed = -300;
-
-    void Update()
+    public class FastFall : AbstractBehavior
     {
-        var down = _inputState.GetButtonValue(inputButtons[0]);
+        public float pullSpeed = -300;
 
-        if (down && !_collisionState.standing && !_collisionState.onWall)
+        void Update()
         {
-            _rb2d.velocity = new Vector2(_rb2d.velocity.x, pullSpeed);
+            var down = _inputState.GetButtonValue(inputButtons[0]);
+
+            if (down && !_collisionState.standing && !_collisionState.onWall)
+            {
+                _rb2d.velocity = new Vector2(_rb2d.velocity.x, pullSpeed);
+            }
         }
     }
 }

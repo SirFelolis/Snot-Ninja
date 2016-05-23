@@ -1,348 +1,369 @@
 
 Player.png
-size: 2048,512
+size: 2048,1024
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
 FX01
   rotate: false
-  xy: 2, 105
+  xy: 2, 324
   size: 606, 195
   orig: 1242, 905
   offset: 506, 359
   index: -1
 FX02
   rotate: false
-  xy: 2, 302
+  xy: 2, 114
   size: 861, 208
   orig: 1242, 905
   offset: 252, 385
   index: -1
 FX03
   rotate: false
-  xy: 865, 442
+  xy: 2, 44
   size: 691, 68
   orig: 1242, 905
   offset: 278, 509
   index: -1
+FX04
+  rotate: false
+  xy: 1286, 666
+  size: 439, 356
+  orig: 1140, 1140
+  offset: 130, 667
+  index: -1
+FX05
+  rotate: false
+  xy: 2, 521
+  size: 693, 501
+  orig: 1140, 1140
+  offset: 269, 519
+  index: -1
+FX06
+  rotate: true
+  xy: 697, 467
+  size: 555, 587
+  orig: 1140, 1140
+  offset: 345, 138
+  index: -1
 Head
   rotate: false
-  xy: 1798, 441
+  xy: 903, 396
   size: 114, 69
   orig: 400, 400
   offset: 249, 329
   index: -1
 arm1
   rotate: true
-  xy: 1914, 446
+  xy: 1136, 401
   size: 64, 104
   orig: 400, 400
   offset: 81, 254
   index: -1
 arm2
   rotate: true
-  xy: 1381, 235
+  xy: 1242, 386
   size: 79, 54
   orig: 400, 400
   offset: 286, 206
   index: -1
 arm3
   rotate: true
-  xy: 1775, 369
+  xy: 780, 324
   size: 70, 109
   orig: 400, 400
   offset: 79, 254
   index: -1
 body
   rotate: false
-  xy: 1152, 310
+  xy: 1727, 606
   size: 134, 130
   orig: 400, 400
   offset: 187, 243
   index: -1
 body2
-  rotate: true
-  xy: 1426, 331
+  rotate: false
+  xy: 1854, 749
   size: 109, 137
   orig: 400, 400
   offset: 193, 241
   index: -1
 body3
-  rotate: true
-  xy: 1015, 309
+  rotate: false
+  xy: 1863, 612
   size: 131, 135
   orig: 400, 400
   offset: 185, 243
   index: -1
 body4
   rotate: false
-  xy: 1288, 316
+  xy: 1450, 505
   size: 136, 124
   orig: 400, 450
   offset: 145, 244
   index: -1
 body5
-  rotate: true
-  xy: 865, 315
+  rotate: false
+  xy: 1727, 738
   size: 125, 148
   orig: 400, 450
   offset: 168, 240
   index: -1
 eye
   rotate: false
-  xy: 724, 19
+  xy: 1928, 888
   size: 31, 15
   orig: 42, 27
   offset: 7, 4
   index: -1
 eyebig
   rotate: true
-  xy: 1775, 345
+  xy: 865, 300
   size: 22, 24
   orig: 400, 450
   offset: 303, 365
   index: -1
 eyeblink
   rotate: false
-  xy: 896, 90
+  xy: 981, 2
   size: 31, 14
   orig: 400, 400
   offset: 299, 361
   index: -1
 eyeblink2
-  rotate: true
-  xy: 985, 163
+  rotate: false
+  xy: 1014, 2
   size: 31, 14
   orig: 400, 400
   offset: 299, 361
   index: -1
 flap
   rotate: false
-  xy: 1667, 345
+  xy: 865, 92
   size: 106, 94
   orig: 400, 400
   offset: 177, 178
   index: -1
 foot1
   rotate: false
-  xy: 1437, 269
+  xy: 1965, 752
   size: 77, 60
   orig: 400, 400
   offset: 28, 0
   index: -1
 foot2
   rotate: true
-  xy: 1256, 228
+  xy: 1373, 392
   size: 80, 46
   orig: 400, 400
   offset: 264, 32
   index: -1
 foot3
   rotate: true
-  xy: 1518, 212
+  xy: 707, 332
   size: 55, 69
   orig: 400, 400
   offset: 289, 32
   index: -1
 foot4
-  rotate: false
-  xy: 1178, 214
+  rotate: true
+  xy: 684, 389
   size: 76, 94
   orig: 400, 850
   offset: 32, 173
   index: -1
 hand1
-  rotate: true
-  xy: 833, 69
+  rotate: false
+  xy: 1605, 603
   size: 99, 61
   orig: 400, 400
   offset: 15, 215
   index: -1
 hand2
-  rotate: true
-  xy: 1437, 211
+  rotate: false
+  xy: 973, 213
   size: 56, 79
   orig: 400, 400
   offset: 341, 225
   index: -1
 hand3
   rotate: false
-  xy: 504, 31
+  xy: 1298, 400
   size: 73, 72
   orig: 400, 400
   offset: 160, 206
   index: -1
 hand4
-  rotate: false
-  xy: 833, 2
+  rotate: true
+  xy: 914, 2
   size: 88, 65
   orig: 400, 400
   offset: 280, 225
   index: -1
 hand5
   rotate: false
-  xy: 1591, 290
+  xy: 1734, 551
   size: 58, 53
   orig: 400, 400
   offset: 219, 254
   index: -1
 hand6
   rotate: false
-  xy: 1651, 297
+  xy: 1794, 558
   size: 62, 46
   orig: 400, 400
   offset: 335, 225
   index: -1
 hand7
   rotate: false
-  xy: 56, 27
+  xy: 1286, 474
   size: 128, 41
   orig: 400, 850
   offset: 22, 436
   index: -1
 head2
   rotate: false
-  xy: 1005, 203
+  xy: 865, 188
   size: 106, 104
   orig: 400, 450
   offset: 246, 330
   index: -1
 head3
   rotate: true
-  xy: 811, 170
+  xy: 610, 389
   size: 130, 72
   orig: 494, 531
   offset: 262, 387
   index: -1
 head4
-  rotate: false
-  xy: 1113, 212
+  rotate: true
+  xy: 610, 324
   size: 63, 95
   orig: 400, 450
   offset: 291, 314
   index: -1
 headband
   rotate: true
-  xy: 2, 70
+  xy: 1286, 631
   size: 33, 317
   orig: 400, 400
   offset: 229, 65
   index: -1
 neck
   rotate: true
-  xy: 2, 2
+  xy: 1680, 535
   size: 66, 52
   orig: 400, 400
   offset: 247, 333
   index: -1
 neck2
   rotate: true
-  xy: 1886, 387
+  xy: 1996, 592
   size: 52, 49
   orig: 400, 450
   offset: 210, 385
   index: -1
 sheath01
-  rotate: true
-  xy: 610, 2
+  rotate: false
+  xy: 1286, 517
   size: 162, 112
   orig: 400, 850
   offset: 72, 362
   index: -1
 shin1
-  rotate: false
-  xy: 724, 36
+  rotate: true
+  xy: 695, 5
   size: 107, 128
   orig: 400, 400
   offset: 69, 46
   index: -1
 shin2
-  rotate: true
-  xy: 186, 25
+  rotate: false
+  xy: 1996, 646
   size: 43, 104
   orig: 400, 400
   offset: 266, 67
   index: -1
 shoulder1
   rotate: false
-  xy: 1675, 441
+  xy: 780, 396
   size: 121, 69
   orig: 400, 400
   offset: 112, 311
   index: -1
 shoulder2
   rotate: true
-  xy: 1558, 455
+  xy: 1019, 410
   size: 55, 115
   orig: 400, 400
   offset: 276, 219
   index: -1
 sneeze01
   rotate: true
-  xy: 1715, 302
+  xy: 973, 93
   size: 41, 59
   orig: 400, 850
   offset: 300, 599
   index: -1
 sneeze02
-  rotate: true
-  xy: 1516, 269
+  rotate: false
+  xy: 981, 18
   size: 60, 73
   orig: 400, 850
   offset: 287, 606
   index: -1
 sneeze03
-  rotate: true
-  xy: 413, 22
+  rotate: false
+  xy: 1965, 814
   size: 81, 89
   orig: 400, 850
   offset: 276, 614
   index: -1
 sneeze04
   rotate: false
-  xy: 896, 106
+  xy: 825, 2
   size: 87, 88
   orig: 400, 850
   offset: 272, 622
   index: -1
 sneeze05
   rotate: false
-  xy: 321, 26
+  xy: 1588, 524
   size: 90, 77
   orig: 400, 850
   offset: 270, 637
   index: -1
 snot
-  rotate: false
-  xy: 2020, 454
+  rotate: true
+  xy: 2, 24
   size: 18, 56
   orig: 400, 400
   offset: 334, 298
   index: -1
 sword01
   rotate: false
-  xy: 610, 166
+  xy: 1727, 888
   size: 199, 134
   orig: 400, 850
   offset: 81, 375
   index: -1
 swordhandle01
-  rotate: false
-  xy: 1304, 246
+  rotate: true
+  xy: 973, 136
   size: 75, 68
   orig: 400, 850
   offset: 205, 441
   index: -1
 thigh1
-  rotate: false
-  xy: 1565, 345
+  rotate: true
+  xy: 891, 294
   size: 100, 108
   orig: 400, 400
   offset: 130, 140
   index: -1
 thigh2
   rotate: false
-  xy: 885, 196
+  xy: 1928, 905
   size: 118, 117
   orig: 400, 400
   offset: 218, 131

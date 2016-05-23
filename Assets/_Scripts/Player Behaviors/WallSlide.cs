@@ -3,50 +3,53 @@
 /** Player wall slide script
 */
 
-public class WallSlide : AbstractBehavior
+namespace Player
 {
-    public bool onWallDetected;
-
-    private float _defaultGravityScale;
-
-    void Start()
+    public class WallSlide : AbstractBehavior
     {
-        _defaultGravityScale = _rb2d.gravityScale;
-    }
+        public bool onWallDetected;
 
-    void Update()
-    {
+        private float _defaultGravityScale;
 
-        if (_collisionState.onWall)
+        void Start()
         {
-            if (!onWallDetected)
+            _defaultGravityScale = _rb2d.gravityScale;
+        }
+
+        void Update()
+        {
+
+            if (_collisionState.onWall)
             {
-                onWallDetected = true;
-                OnStick();
-                ToggleScripts(false);
+                if (!onWallDetected)
+                {
+                    onWallDetected = true;
+                    OnStick();
+                    ToggleScripts(false);
+                }
+            }
+            else
+            {
+                if (onWallDetected)
+                {
+                    OffWall();
+                    ToggleScripts(true);
+                    onWallDetected = false;
+                }
             }
         }
-        else
+
+        void OnStick()
         {
-            if (onWallDetected)
-            {
-                OffWall();
-                ToggleScripts(true);
-                onWallDetected = false;
-            }
+            _rb2d.gravityScale = 25.0f;
         }
-    }
 
-    void OnStick()
-    {
-        _rb2d.gravityScale = 25.0f;
-    }
-
-    void OffWall()
-    {
-        if (_rb2d.gravityScale != _defaultGravityScale)
+        void OffWall()
         {
-            _rb2d.gravityScale = _defaultGravityScale;
+            if (_rb2d.gravityScale != _defaultGravityScale)
+            {
+                _rb2d.gravityScale = _defaultGravityScale;
+            }
         }
     }
 }

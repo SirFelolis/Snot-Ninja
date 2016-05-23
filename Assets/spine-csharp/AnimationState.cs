@@ -43,14 +43,14 @@ namespace Spine {
 		public AnimationStateData Data { get { return data; } }
 		public float TimeScale { get { return timeScale; } set { timeScale = value; } }
 
-		public delegate void StartEndDelegate(AnimationState state, int trackIndex);
+		public delegate void StartEndDelegate (AnimationState state, int trackIndex);
 		public event StartEndDelegate Start;
 		public event StartEndDelegate End;
 
-		public delegate void EventDelegate(AnimationState state, int trackIndex, Event e);
+		public delegate void EventDelegate (AnimationState state, int trackIndex, Event e);
 		public event EventDelegate Event;
-		
-		public delegate void CompleteDelegate(AnimationState state, int trackIndex, int loopCount);
+
+		public delegate void CompleteDelegate (AnimationState state, int trackIndex, int loopCount);
 		public event CompleteDelegate Complete;
 
 		public AnimationState (AnimationStateData data) {
@@ -114,7 +114,10 @@ namespace Spine {
 				} else {
 					float previousTime = previous.time;
 					if (!previous.loop && previousTime > previous.endTime) previousTime = previous.endTime;
-					previous.animation.Apply(skeleton, previousTime, previousTime, previous.loop, null);
+					previous.animation.Apply(skeleton, previous.lastTime, previousTime, previous.loop, null);
+					// Remove the line above, and uncomment the line below, to allow previous animations to fire events during mixing.
+					//previous.animation.Apply(skeleton, previous.lastTime, previousTime, previous.loop, events);
+					previous.lastTime = previousTime;
 
 					float alpha = current.mixTime / current.mixDuration * current.mix;
 					if (alpha >= 1) {

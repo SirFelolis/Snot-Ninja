@@ -3,59 +3,63 @@
 /** Player slide script
 */
 
-public class Slide : AbstractBehavior {
-
-    public float scale = 0.5f;
-    public bool sliding;
-    public float centerOffsetY = 0;
-
-    private CircleCollider2D _circleCollider;
-    private Vector2 _originalCenter;
-
-    protected override void Awake()
+namespace Player
+{
+    public class Slide : AbstractBehavior
     {
-        base.Awake();
-        _circleCollider = GetComponent<CircleCollider2D>();
-        _originalCenter = _circleCollider.offset;
-    }
 
-    protected virtual void OnSlide(bool value)
-    {
-        sliding = value;
+        public float scale = 0.5f;
+        public bool sliding;
+        public float centerOffsetY = 0;
 
-        ToggleScripts(!sliding);
+        private CircleCollider2D _circleCollider;
+        private Vector2 _originalCenter;
 
-        var size = _circleCollider.radius;
-
-        float newOffsetY;
-        float sizeReciprocal;
-
-        if (sliding)
+        protected override void Awake()
         {
-            sizeReciprocal = scale;
-            newOffsetY = _circleCollider.offset.y - size / 2 + centerOffsetY;
-        }
-        else
-        {
-            sizeReciprocal = 1 / scale;
-            newOffsetY = _originalCenter.y;
+            base.Awake();
+            _circleCollider = GetComponent<CircleCollider2D>();
+            _originalCenter = _circleCollider.offset;
         }
 
-        size = size * sizeReciprocal;
-        _circleCollider.radius = size;
-        _circleCollider.offset = new Vector2(_circleCollider.offset.x, newOffsetY);
-    }
+        protected virtual void OnSlide(bool value)
+        {
+            sliding = value;
 
-    void Update()
-    {
-        var canSlide = _inputState.GetButtonValue(inputButtons[0]);
-        if (canSlide && _collisionState.standing && !sliding)
-        {
-            OnSlide(true);
+            ToggleScripts(!sliding);
+
+            var size = _circleCollider.radius;
+
+            float newOffsetY;
+            float sizeReciprocal;
+
+            if (sliding)
+            {
+                sizeReciprocal = scale;
+                newOffsetY = _circleCollider.offset.y - size / 2 + centerOffsetY;
+            }
+            else
+            {
+                sizeReciprocal = 1 / scale;
+                newOffsetY = _originalCenter.y;
+            }
+
+            size = size * sizeReciprocal;
+            _circleCollider.radius = size;
+            _circleCollider.offset = new Vector2(_circleCollider.offset.x, newOffsetY);
         }
-        else if (sliding && !canSlide)
+
+        void Update()
         {
-            OnSlide(false);
+            var canSlide = _inputState.GetButtonValue(inputButtons[0]);
+            if (canSlide && _collisionState.standing && !sliding)
+            {
+                OnSlide(true);
+            }
+            else if (sliding && !canSlide)
+            {
+                OnSlide(false);
+            }
         }
     }
 }
